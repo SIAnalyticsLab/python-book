@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 6 — Data Wrangling with Pandas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial; margin: 0; color: #0F172A; line-height: 1.7; }
+header { background: #0F766E; color: white; padding: 40px; }
+nav { background: #0F172A; padding: 15px; }
+nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
+main { max-width: 900px; margin: auto; padding: 40px; }
+h2 { color: #0F766E; }
+pre { background: #f3f4f6; padding: 15px; }
+footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+</style>
+</head>
+
+<body>
+<header><h1>Chapter 6 — Data Wrangling with Pandas</h1></header>
+
+<nav>
+  <a href="chapter5.html">← Chapter 5</a>
+  <a href="index.html">Home</a>
+  <a href="chapter7.html">Chapter 7 →</a>
+</nav>
+
+<main>
+
+<pre><code>
+import pandas as pd
+df = pd.read_csv("data.csv")
+df.groupby("country")["cases"].sum()
+</code></pre>
+
+</main>
+
+<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+</body>
+</html>
