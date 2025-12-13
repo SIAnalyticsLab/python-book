@@ -4,16 +4,97 @@
 <meta charset="UTF-8">
 <title>Chapter 10 — Quarto Dashboards & Final Project</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial; margin: 0; color: #0F172A; line-height: 1.7; }
-header { background: #0F766E; color: white; padding: 40px; }
-nav { background: #0F172A; padding: 15px; }
-nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
-main { max-width: 900px; margin: auto; padding: 40px; }
-h2 { color: #0F766E; }
-pre { background: #f3f4f6; padding: 15px; }
-.callout { background: #f9fafb; border-left: 4px solid #0F766E; padding: 15px; margin: 25px 0; }
-footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0F172A;
+  line-height: 1.7;
+}
+
+header {
+  background: #0F766E;
+  color: white;
+  padding: 40px;
+}
+
+nav {
+  background: #0F172A;
+  padding: 15px;
+}
+
+nav a {
+  color: #FACC15;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 950px;
+  margin: auto;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+  border-radius: 6px;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+  border-radius: 6px;
+}
+
+.video-box {
+  background: #f9fafb;
+  border-left: 4px solid #FACC15;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 6px;
+}
+
+iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  border-radius: 6px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  text-align: left;
+}
+
+footer {
+  background: #0F172A;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
 </style>
 </head>
 
@@ -21,7 +102,9 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 
 <header>
   <h1>Chapter 10 — Quarto Dashboards & Final Project</h1>
-  <p>Python for Data Analysis & Visualization — SI Analytics</p>
+  <p><strong>Python for Data Analysis & Visualization — An SI Analytics Guide</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
+  <p><em>Empowering Decisions. Driving Innovation.</em></p>
 </header>
 
 <nav>
@@ -32,94 +115,383 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 <main>
 
 <h2>Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
 <ul>
-  <li>Understand what Quarto is</li>
-  <li>Build dashboards using Python + Markdown</li>
-  <li>Render HTML outputs</li>
-  <li>Deploy dashboards to GitHub Pages</li>
+  <li>Explain what Quarto is and why it is used in professional analytics</li>
+  <li>Understand the role of YAML in configuring reports and dashboards</li>
+  <li>Combine Markdown and Python code in a single document</li>
+  <li>Build a simple but professional dashboard using Quarto</li>
+  <li>Render Python analysis into an interactive HTML page</li>
+  <li>Deploy a finished dashboard to GitHub Pages</li>
+  <li>Complete and publish a full capstone project</li>
+  <li>Explain how all skills from Chapters 1–9 fit together</li>
 </ul>
 
 <hr>
 
-<h2>1. What Is Quarto?</h2>
+<h2>1. Why Quarto? (The Missing Piece)</h2>
 
 <p>
-Quarto is a publishing system that turns analysis into shareable products.
+You now know how to write Python, analyze data, visualize results, and work professionally.
+</p>
+
+<p>
+One final question remains:
+</p>
+
+<div class="callout">
+<p><strong>How do we turn analysis into a polished, shareable product?</strong></p>
+</div>
+
+<p>
+This is where Quarto comes in.
 </p>
 
 <hr>
 
-<h2>2. Quarto Document Structure</h2>
+<h2>2. What Is Quarto?</h2>
+
+<p>
+Quarto is a publishing system for data analysis.
+</p>
+
+<p>
+It allows you to:
+</p>
+
+<ul>
+  <li>Combine text, code, and results</li>
+  <li>Create reports, dashboards, and websites</li>
+  <li>Render content into HTML</li>
+  <li>Publish work easily to GitHub Pages</li>
+</ul>
+
+<p>
+Think of Quarto as:
+</p>
+
+<div class="callout">
+<p><strong>The bridge between analysis and communication.</strong></p>
+</div>
+
+<p>
+In this book, we use Quarto with Python.
+</p>
+
+<hr>
+
+<h2>3. Installing Quarto</h2>
+
+<h3>Installation Steps</h3>
+<ol>
+  <li>Go to <a href="https://quarto.org" target="_blank">https://quarto.org</a></li>
+  <li>Download Quarto for your operating system</li>
+  <li>Install using default options</li>
+</ol>
+
+<h3>Verify Installation</h3>
+
+<pre><code>quarto --version</code></pre>
+
+<p>
+If Quarto responds, installation is successful.
+</p>
+
+<hr>
+
+<h2>4. How Quarto Documents Work</h2>
+
+<p>
+A Quarto document uses the extension:
+</p>
+
+<pre><code>.qmd</code></pre>
+
+<p>
+It contains three components:
+</p>
+
+<ul>
+  <li><strong>YAML</strong> — configuration</li>
+  <li><strong>Markdown</strong> — narrative text</li>
+  <li><strong>Python code</strong> — analysis and visualization</li>
+</ul>
+
+<hr>
+
+<h2>5. YAML Basics (Without Fear)</h2>
 
 <pre><code>---
-title: "My Dashboard"
+title: "Malaria Dashboard"
+author: "Strategic Insights & Analytics (SI Analytics)"
 format: html
+execute:
+  echo: true
 ---</code></pre>
 
 <p>
-YAML controls document behavior.
+YAML rules:
 </p>
 
-<hr>
-
-<h2>3. Python + Markdown</h2>
+<ul>
+  <li>Always at the top</li>
+  <li>Starts and ends with <code>---</code></li>
+  <li>Indentation matters</li>
+</ul>
 
 <p>
-Quarto allows narrative, code, and charts in one place.
+You do not need to memorize YAML — just recognize patterns.
 </p>
 
 <hr>
 
-<h2>4. Building a Dashboard</h2>
+<h2>6. Markdown + Python Integration</h2>
+
+<p>
+Markdown handles text:
+</p>
+
+<pre><code>## Introduction
+This dashboard explores malaria trends over time.</code></pre>
+
+<p>
+Python handles analysis:
+</p>
+
+<pre><code>import pandas as pd</code></pre>
+
+<p>
+Quarto runs the code and inserts results automatically.
+</p>
+
+<hr>
+
+<h2>7. Creating Your First Quarto Dashboard</h2>
+
+<h3>Project Structure</h3>
+
+<pre><code>malaria-dashboard/
+├── data/
+│   └── malaria.csv
+├── dashboard.qmd
+└── README.md</code></pre>
+
+<h3>YAML Header</h3>
+
+<pre><code>---
+title: "Malaria Trends Dashboard"
+author: "Strategic Insights & Analytics (SI Analytics)"
+format: html
+execute:
+  echo: false
+---</code></pre>
+
+<p>
+Setting <code>echo: false</code> hides code and shows results only.
+</p>
+
+<hr>
+
+<h2>8. Loading Data in Quarto</h2>
+
+<pre><code>import pandas as pd
+
+url = "https://raw.githubusercontent.com/SIAnalyticsLab/30daychallengeguide/main/malaria.csv"
+df = pd.read_csv(url)
+
+df.head()</code></pre>
+
+<p>
+When rendered, tables appear directly in the dashboard.
+</p>
+
+<hr>
+
+<h2>9. Adding Visualizations</h2>
+
+<pre><code>import plotly.express as px
+
+fig = px.line(
+    df,
+    x="year",
+    y="cases",
+    color="country",
+    title="Malaria Cases Over Time"
+)
+
+fig</code></pre>
+
+<p>
+Plotly charts remain fully interactive in HTML output.
+</p>
+
+<hr>
+
+<h2>10. Structuring a Dashboard</h2>
+
+<pre><code>## Overview
+This dashboard presents malaria trends by country and year.
+
+## Key Trends
+- Rising cases in some regions
+- Declines in others
+
+## Visual Analysis</code></pre>
+
+<p>
+Clear structure matters as much as correct analysis.
+</p>
+
+<hr>
+
+<h2>11. Rendering the Dashboard</h2>
 
 <pre><code>quarto render dashboard.qmd</code></pre>
 
 <p>
-This generates an interactive HTML dashboard.
+Quarto generates:
 </p>
 
-<hr>
-
-<h2>5. Publishing the Capstone</h2>
+<pre><code>dashboard.html</code></pre>
 
 <p>
-Push rendered files to GitHub and enable GitHub Pages.
+You now have a professional analytics product.
 </p>
 
 <hr>
 
-<div class="callout">
-<strong>Capstone Project</strong>
-<ul>
-  <li>Load a real dataset</li>
-  <li>Transform data</li>
-  <li>Create at least two Plotly charts</li>
-  <li>Publish dashboard online</li>
-</ul>
+<h2>12. Publishing to GitHub Pages</h2>
+
+<ol>
+  <li>Create a GitHub repository</li>
+  <li>Push your files</li>
+  <li>Go to Settings → Pages</li>
+  <li>Enable Pages from main branch</li>
+</ol>
+
+<p>
+Your dashboard is now live.
+</p>
+
+<hr>
+
+<h2>Video Placeholder — SI Analytics (Final videos coming soon)</h2>
+
+<div class="video-box">
+  <p><strong>Getting Started with Quarto Dashboards</strong></p>
+  <iframe src="https://www.youtube.com/embed/PkP4If1YbR8" allowfullscreen></iframe>
+  <p>
+    ▶️ <a href="https://www.youtube.com/watch?v=PkP4If1YbR8" target="_blank">
+    Watch on YouTube (optional)</a>
+  </p>
+</div>
+
+<div class="video-box">
+  <p><strong>Build an Interactive Dashboard in Quarto (Gapminder)</strong></p>
+  <iframe src="https://www.youtube.com/embed/U3ooTe-GdZg" allowfullscreen></iframe>
+  <p>
+    ▶️ <a href="https://www.youtube.com/watch?v=U3ooTe-GdZg" target="_blank">
+    Watch on YouTube (optional)</a>
+  </p>
 </div>
 
 <hr>
 
-<h2>Why This Chapter Matters</h2>
+<h2>13. The Capstone Project (Required)</h2>
+
+<h3>Goal</h3>
+<p>
+Build and publish a complete interactive dashboard using Python, Pandas, Plotly, and Quarto.
+</p>
+
+<h3>Recommended Datasets</h3>
+<ul>
+  <li>Malaria data</li>
+  <li>HIV new cases data</li>
+  <li>COVID-19 Africa data</li>
+  <li>Finance or population data</li>
+</ul>
+
+<h3>Requirements</h3>
+<ul>
+  <li>Clear title and introduction</li>
+  <li>At least one data transformation</li>
+  <li>At least two interactive charts</li>
+  <li>Rendered HTML output</li>
+  <li>Public GitHub Pages link</li>
+</ul>
+
+<h3>Evaluation Criteria</h3>
+
+<table>
+<tr><th>Area</th><th>What Matters</th></tr>
+<tr><td>Clarity</td><td>Is the story understandable?</td></tr>
+<tr><td>Accuracy</td><td>Are calculations correct?</td></tr>
+<tr><td>Structure</td><td>Is the dashboard organized?</td></tr>
+<tr><td>Reproducibility</td><td>Can someone rerun it?</td></tr>
+<tr><td>Communication</td><td>Does it inform decisions?</td></tr>
+</table>
+
+<hr>
+
+<h2>Why This Chapter Matters in Real Projects</h2>
 
 <p>
-This chapter turns skills into impact.
+Success in analytics is not just correct code.
+</p>
+
+<p>
+It is:
+</p>
+
+<ul>
+  <li>Clear communication</li>
+  <li>Shareable outputs</li>
+  <li>Reproducible workflows</li>
+  <li>Decision-ready insights</li>
+</ul>
+
+<p>
+Quarto enables all of this.
 </p>
 
 <hr>
 
-<h2>End-of-Book Recap</h2>
+<h2>Reflection Questions</h2>
 
 <ul>
-  <li>You learned Python from zero</li>
-  <li>You analyzed real datasets</li>
-  <li>You built and published dashboards</li>
+  <li>How does Quarto change how analysis is shared?</li>
+  <li>Why is reproducibility important?</li>
+  <li>Who is your dashboard designed for?</li>
 </ul>
 
-<p><strong>This is the beginning, not the end.</strong></p>
+<hr>
+
+<h2>End-of-Chapter Recap</h2>
+
+<ul>
+  <li>What Quarto is and why it matters</li>
+  <li>How YAML configures dashboards</li>
+  <li>How Markdown and Python work together</li>
+  <li>How to build and publish dashboards</li>
+  <li>How to complete a full analytics capstone</li>
+</ul>
+
+<div class="callout">
+<p><strong>Final Note from SI Analytics</strong></p>
+<p>
+You started with no Python knowledge.<br>
+You now have a professional workflow, a published dashboard, and a foundation for lifelong growth.
+</p>
+<p><em>This is not the end. It is the beginning.</em></p>
+<p><strong>Empowering Decisions. Driving Innovation.</strong></p>
+</div>
 
 </main>
 
-<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+<footer>
+© Strategic Insights & Analytics (SI Analytics)
+</footer>
+
 </body>
 </html>
