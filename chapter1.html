@@ -2,24 +2,82 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Chapter 1 — Getting Started with Python</title>
+<title>Chapter 1 — Getting Started with Python (Google Colab)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial, sans-serif; margin: 0; color: #0F172A; }
-header { background: #0F766E; color: white; padding: 30px; }
-nav { background: #0F172A; padding: 15px; }
-nav a { color: #FACC15; margin-right: 15px; text-decoration: none; }
-main { padding: 40px; max-width: 900px; margin: auto; }
-pre { background: #f3f4f6; padding: 15px; }
-footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0F172A;
+  line-height: 1.7;
+}
+
+header {
+  background: #0F766E;
+  color: white;
+  padding: 40px;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav {
+  background: #0F172A;
+  padding: 15px;
+}
+
+nav a {
+  color: #FACC15;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+}
+
+footer {
+  background: #0F172A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Chapter 1 — Getting Started with Python</h1>
-  <p>Python for Data Analysis & Visualization — SI Analytics</p>
+  <h1>Chapter 1 — Getting Started with Python (Google Colab)</h1>
+  <p><strong>Python for Data Analysis & Visualization</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
 </header>
 
 <nav>
@@ -30,27 +88,345 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 <main>
 
 <h2>Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
 <ul>
-  <li>Understand what Python is</li>
-  <li>Use Google Colab</li>
-  <li>Write your first Python commands</li>
+  <li>Explain what Python is and why it is used for data analysis</li>
+  <li>Use Google Colab to write and run Python code</li>
+  <li>Understand how Python executes instructions</li>
+  <li>Create variables and work with basic data types</li>
+  <li>Recognize and avoid common beginner errors</li>
+  <li>Use ChatGPT responsibly as a learning assistant</li>
 </ul>
 
-<h2>First Python Code</h2>
+<hr>
+
+<h2>1. What Is Python? (In Plain Language)</h2>
+
+<p>
+Python is a <strong>programming language</strong>.
+</p>
+
+<p>
+A programming language allows humans to give instructions to computers in a structured,
+readable way. Python is especially popular because:
+</p>
+
+<ul>
+  <li>It reads almost like English</li>
+  <li>It has a gentle learning curve</li>
+  <li>It is used across many fields</li>
+  <li>It has powerful libraries for data analysis</li>
+</ul>
+
+<p>When we use Python for data analysis, we typically ask it to:</p>
+
+<ul>
+  <li>Read data files (CSV, Excel, databases)</li>
+  <li>Clean and prepare data</li>
+  <li>Perform calculations and summaries</li>
+  <li>Create charts and dashboards</li>
+  <li>Automate repetitive tasks</li>
+</ul>
+
+<p>
+Python does not <em>think</em>.  
+It follows instructions <strong>exactly as written</strong>.
+</p>
+
+<p>
+That is why clarity matters.
+</p>
+
+<hr>
+
+<h2>2. Why We Start with Google Colab</h2>
+
+<h3>What Is Google Colab?</h3>
+
+<p>
+Google Colab (short for <em>Collaboratory</em>) is a cloud-based Python environment
+that runs entirely in your web browser.
+</p>
+
+<p>You do not need to:</p>
+
+<ul>
+  <li>Install Python</li>
+  <li>Configure software</li>
+  <li>Worry about your operating system</li>
+</ul>
+
+<p>
+You simply open a browser and start coding.
+</p>
+
+<h3>Why Colab Is Ideal for Beginners</h3>
+
+<ul>
+  <li>No installation issues</li>
+  <li>Works on Windows, macOS, Linux, or tablets</li>
+  <li>Code runs instantly</li>
+  <li>Easy to save and revisit work</li>
+  <li>Ideal for experimentation and learning</li>
+</ul>
+
+<p>
+In professional settings, local installations matter — but not yet.
+</p>
+
+<div class="callout">
+<strong>Try This Yourself — Open Google Colab</strong>
+<ol>
+  <li>Open your browser</li>
+  <li>Go to: <a href="https://colab.research.google.com" target="_blank">https://colab.research.google.com</a></li>
+  <li>Click <strong>New Notebook</strong></li>
+  <li>You will see a blank notebook with a code cell</li>
+</ol>
+
+<p>
+A notebook is simply a document that contains:
+</p>
+
+<ul>
+  <li>Code cells (where Python runs)</li>
+  <li>Text cells (for notes and explanations)</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>3. Your First Python Command</h2>
+
+<p>In the first code cell, type:</p>
 
 <pre><code>print("Hello, Python!")</code></pre>
 
-<h2>Try This Yourself</h2>
 <p>
-Change the message and run the code again.
+Now press <strong>Shift + Enter</strong>.
 </p>
 
-<h2>Why This Matters</h2>
+<h3>What Just Happened?</h3>
+
+<ul>
+  <li><code>print</code> is a function</li>
+  <li>A function performs an action</li>
+  <li>The parentheses <code>()</code> tell Python what the function should work on</li>
+  <li><code>"Hello, Python!"</code> is text, called a string</li>
+</ul>
+
 <p>
-Every data analysis project starts with these fundamentals.
+The <code>print()</code> function tells Python:
 </p>
 
-<p><em>Video Placeholder — SI Analytics (Final videos coming soon)</em></p>
+<blockquote>
+“Display this text on the screen.”
+</blockquote>
+
+<hr>
+
+<h2>4. Understanding How Python Executes Code</h2>
+
+<p>
+Python executes code <strong>line by line</strong>, from top to bottom.
+</p>
+
+<p>This means:</p>
+
+<ul>
+  <li>Order matters</li>
+  <li>You cannot use something before defining it</li>
+  <li>Errors stop execution immediately</li>
+</ul>
+
+<p>
+This predictable behavior is a strength — not a weakness.
+</p>
+
+<hr>
+
+<h2>5. Variables: Storing Information</h2>
+
+<p>
+A variable stores information so you can use it later.
+</p>
+
+<p>
+Think of a variable as a <strong>labeled container</strong>.
+</p>
+
+<pre><code>age = 30</code></pre>
+
+<p>Here:</p>
+
+<ul>
+  <li><code>age</code> is the variable name</li>
+  <li><code>=</code> assigns a value</li>
+  <li><code>30</code> is the value stored</li>
+</ul>
+
+<p>Now try:</p>
+
+<pre><code>print(age)</code></pre>
+
+<p>Python will display:</p>
+
+<pre><code>30</code></pre>
+
+<h3>Why Variables Matter</h3>
+
+<ul>
+  <li>Reuse values</li>
+  <li>Avoid repetition</li>
+  <li>Make code readable</li>
+  <li>Update logic easily</li>
+</ul>
+
+<hr>
+
+<h2>6. Basic Data Types (Gently Introduced)</h2>
+
+<pre><code>name = "Amina"
+years_experience = 5
+height_meters = 1.65
+is_active = True</code></pre>
+
+<table border="1" cellpadding="8" cellspacing="0">
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>String</td>
+<td>"Amina"</td>
+<td>Text</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>5</td>
+<td>Whole numbers</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>1.65</td>
+<td>Decimal numbers</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>True</td>
+<td>Yes / No values</td>
+</tr>
+</table>
+
+<div class="callout">
+<strong>Try This Yourself</strong>
+<ul>
+  <li>Create variables for your name</li>
+  <li>Your country</li>
+  <li>Your years of experience</li>
+  <li>Whether you are learning data analysis</li>
+</ul>
+<p>Print each one.</p>
+</div>
+
+<hr>
+
+<h2>7. Comments: Explaining Your Code</h2>
+
+<pre><code># This is a comment
+years = 10  # Years of experience</code></pre>
+
+<p>Comments make code:</p>
+
+<ul>
+  <li>Correct</li>
+  <li>Readable</li>
+  <li>Explainable</li>
+</ul>
+
+<hr>
+
+<h2>8. Common Beginner Mistakes</h2>
+
+<p><strong>❌ Forgetting quotation marks</strong></p>
+
+<pre><code>name = John</code></pre>
+
+<p>✅ Correct:</p>
+
+<pre><code>name = "John"</code></pre>
+
+<p><strong>❌ Running cells out of order</strong></p>
+<p>Always run notebooks top to bottom.</p>
+
+<p><strong>❌ Assuming Python understands intent</strong></p>
+<p>Python only understands exact instructions.</p>
+
+<hr>
+
+<h2>9. Using ChatGPT Responsibly While Learning Python</h2>
+
+<h3>Good Uses</h3>
+<ul>
+  <li>Ask for simpler explanations</li>
+  <li>Understand error messages</li>
+  <li>Request commented examples</li>
+  <li>Clarify unfamiliar concepts</li>
+</ul>
+
+<h3>Avoid</h3>
+<ul>
+  <li>Copying code blindly</li>
+  <li>Skipping practice</li>
+  <li>Letting AI replace thinking</li>
+</ul>
+
+<p><strong>Good test:</strong> Can I explain what this code does in my own words?</p>
+
+<hr>
+
+<h2>Why This Chapter Matters in Real Projects</h2>
+
+<ul>
+  <li>Variables</li>
+  <li>Data types</li>
+  <li>Clear logic</li>
+  <li>Careful execution</li>
+</ul>
+
+<p>
+Strong foundations prevent fragile analyses later.
+</p>
+
+<hr>
+
+<h2>Video Placeholder — SI Analytics (Final videos coming soon)</h2>
+<p><em>Google Colab Introduction</em></p>
+
+<hr>
+
+<h2>Mini Challenge</h2>
+
+<ul>
+  <li>Create a variable called <code>project_name</code></li>
+  <li>Create a variable called <code>budget</code></li>
+  <li>Create a variable called <code>is_funded</code></li>
+  <li>Print all three</li>
+</ul>
+
+<hr>
+
+<h2>End-of-Chapter Recap</h2>
+
+<ul>
+  <li>What Python is and why it matters</li>
+  <li>Why Google Colab is ideal for beginners</li>
+  <li>How to run Python code</li>
+  <li>How variables and data types work</li>
+  <li>How to avoid common beginner mistakes</li>
+</ul>
+
+<p><strong>You now have a solid foundation.</strong></p>
 
 </main>
 
