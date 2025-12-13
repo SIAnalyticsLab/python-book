@@ -4,23 +4,77 @@
 <meta charset="UTF-8">
 <title>Chapter 3 — Functions, Methods & Libraries</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #0F172A; line-height: 1.7; }
-header { background: #0F766E; color: white; padding: 40px; }
-nav { background: #0F172A; padding: 15px; }
-nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
-main { max-width: 900px; margin: auto; padding: 40px; }
-h2, h3 { color: #0F766E; }
-pre { background: #f3f4f6; padding: 15px; }
-.callout { background: #f9fafb; border-left: 4px solid #0F766E; padding: 15px; margin: 25px 0; }
-footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0F172A;
+  line-height: 1.7;
+}
+
+header {
+  background: #0F766E;
+  color: white;
+  padding: 40px;
+}
+
+nav {
+  background: #0F172A;
+  padding: 15px;
+}
+
+nav a {
+  color: #FACC15;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+}
+
+footer {
+  background: #0F172A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 </style>
 </head>
 
 <body>
+
 <header>
   <h1>Chapter 3 — Functions, Methods & Libraries</h1>
-  <p>Python for Data Analysis & Visualization — SI Analytics</p>
+  <p><strong>Python for Data Analysis & Visualization</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
+  <p><em>Empowering Decisions. Driving Innovation.</em></p>
 </header>
 
 <nav>
@@ -32,54 +86,423 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 <main>
 
 <h2>Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
 <ul>
-  <li>Understand what functions are</li>
-  <li>Write and use your own functions</li>
-  <li>Understand methods vs functions</li>
+  <li>Explain what a function is in plain language</li>
+  <li>Distinguish between functions and methods</li>
+  <li>Write your own simple Python functions</li>
+  <li>Understand inputs (arguments) and outputs (return values)</li>
   <li>Import and use Python libraries</li>
+  <li>Recognize the roles of Pandas, NumPy, and Plotly</li>
+  <li>Avoid common beginner mistakes with functions</li>
+  <li>Explain why functions and libraries are essential in real projects</li>
 </ul>
 
-<h2>1. Why Functions Exist</h2>
+<hr>
+
+<h2>1. Why Functions Exist (The Big Idea)</h2>
+
 <p>
-Functions allow you to <strong>reuse logic</strong> instead of repeating code.
-They make your work cleaner, safer, and easier to scale.
+Before functions, let’s revisit a simple problem.
 </p>
 
-<pre><code>def greet(name):
-    return "Hello " + name
+<pre><code>values = [10, 20, 30]
+average = sum(values) / len(values)
+print(average)</code></pre>
 
-print(greet("Amina"))</code></pre>
-
-<h2>2. Functions vs Methods</h2>
 <p>
-A <strong>function</strong> stands alone.  
-A <strong>method</strong> belongs to an object.
+Now imagine doing this 20 times, in different places, with different lists.
 </p>
+
+<p>
+You would repeat the same logic again and again.
+</p>
+
+<p>
+This is exactly the problem functions solve.
+</p>
+
+<p>
+A <strong>function</strong> is a named block of code that performs a specific task and can be reused.
+</p>
+
+<p>Functions help you:</p>
+<ul>
+  <li>Avoid repetition</li>
+  <li>Organize logic</li>
+  <li>Reduce errors</li>
+  <li>Make code readable and trustworthy</li>
+</ul>
+
+<p>
+In professional analytics, functions are not optional.
+</p>
+
+<hr>
+
+<h2>2. Built-in Functions: Functions You Already Use</h2>
+
+<p>
+You have already used functions—even if you did not call them that.
+</p>
+
+<h3>Example: <code>print()</code></h3>
+
+<pre><code>print("Hello, world")</code></pre>
+
+<p>
+Here:
+</p>
+<ul>
+  <li><code>print</code> is a function</li>
+  <li>It performs an action</li>
+  <li>It takes an input (what to print)</li>
+</ul>
+
+<h3>Other Built-in Functions</h3>
+
+<pre><code>len([1, 2, 3])
+type(10)
+sum([5, 10, 15])</code></pre>
+
+<p>
+Python ships with many built-in functions so you don’t have to reinvent the wheel.
+</p>
+
+<div class="callout">
+<strong>Try This Yourself</strong>
+<pre><code>numbers = [4, 8, 15, 16, 23, 42]
+
+print(len(numbers))
+print(sum(numbers))
+print(type(numbers))</code></pre>
+</div>
+
+<hr>
+
+<h2>3. Writing Your Own Function (Step by Step)</h2>
+
+<h3>The Basic Structure</h3>
+
+<pre><code>def function_name():
+    # code goes here</code></pre>
+
+<ul>
+  <li><code>def</code> means define a function</li>
+  <li>You choose the function name</li>
+  <li>Parentheses will later hold inputs</li>
+  <li>Indentation matters</li>
+</ul>
+
+<h3>A Simple Function with No Inputs</h3>
+
+<pre><code>def greet():
+    print("Welcome to Python!")</code></pre>
+
+<p>
+To use the function:
+</p>
+
+<pre><code>greet()</code></pre>
+
+<p>
+Nothing happens until you call the function.
+</p>
+
+<hr>
+
+<h2>4. Functions with Inputs (Arguments)</h2>
+
+<pre><code>def greet_person(name):
+    print("Welcome,", name)</code></pre>
+
+<p>
+Call it like this:
+</p>
+
+<pre><code>greet_person("Amina")
+greet_person("David")</code></pre>
+
+<p>
+Here:
+</p>
+<ul>
+  <li><code>name</code> is a parameter</li>
+  <li><code>"Amina"</code> is an argument</li>
+</ul>
+
+<p>
+Functions allow you to write logic once and reuse it many times.
+</p>
+
+<hr>
+
+<h2>5. Returning Values (Not Just Printing)</h2>
+
+<p>
+Printing shows results.  
+Returning gives results back to the program.
+</p>
+
+<h3>Example</h3>
+
+<pre><code>def calculate_average(values):
+    return sum(values) / len(values)</code></pre>
+
+<pre><code>scores = [70, 85, 90]
+avg_score = calculate_average(scores)
+print(avg_score)</code></pre>
+
+<h3>Key Difference</h3>
+
+<ul>
+  <li><code>print()</code> → displays output</li>
+  <li><code>return</code> → sends output back for reuse</li>
+</ul>
+
+<h3>Common Beginner Mistake</h3>
+
+<pre><code>def calculate_average(values):
+    sum(values) / len(values)  # No return</code></pre>
+
+<p>
+Python calculates but returns nothing.
+</p>
+
+<hr>
+
+<h2>6. What Are Methods? (Functions Attached to Objects)</h2>
+
+<p>
+This distinction is subtle—but important.
+</p>
+
+<h3>Functions vs Methods</h3>
+
+<ul>
+  <li>Function → stands alone</li>
+  <li>Method → belongs to an object</li>
+</ul>
 
 <pre><code>text = "python"
 print(text.upper())</code></pre>
 
-<h2>3. Libraries</h2>
 <p>
-Libraries extend Python’s power.
+Here, <code>upper()</code> is a method belonging to the string <code>text</code>.
 </p>
 
-<pre><code>import pandas as pd
-import numpy as np
+<h3>Common String Methods</h3>
+
+<pre><code>text.upper()
+text.lower()
+text.title()</code></pre>
+
+<pre><code>country = "nigeria"
+print(country.title())</code></pre>
+
+<hr>
+
+<h2>7. Why Methods Matter in Data Analysis</h2>
+
+<p>
+When working with data:
+</p>
+
+<ul>
+  <li>Columns have methods</li>
+  <li>DataFrames have methods</li>
+  <li>Methods make transformations readable</li>
+</ul>
+
+<p>
+You will see this heavily with Pandas.
+</p>
+
+<hr>
+
+<h2>8. Introducing Libraries (Carefully)</h2>
+
+<p>
+Python is powerful because of libraries.
+</p>
+
+<p>
+A <strong>library</strong> is a collection of pre-written code for a specific purpose.
+</p>
+
+<h3>Importing a Library</h3>
+
+<pre><code>import math</code></pre>
+
+<pre><code>math.sqrt(25)</code></pre>
+
+<p>
+Here:
+</p>
+<ul>
+  <li><code>math</code> is the library</li>
+  <li><code>sqrt</code> is a function inside it</li>
+</ul>
+
+<hr>
+
+<h2>9. The Three Core Libraries for This Book</h2>
+
+<p>
+We will work extensively with:
+</p>
+
+<ul>
+  <li><strong>NumPy</strong> — numerical operations</li>
+  <li><strong>Pandas</strong> — data analysis and manipulation</li>
+  <li><strong>Plotly</strong> — interactive visualization</li>
+</ul>
+
+<h3>Importing Them (Standard Practice)</h3>
+
+<pre><code>import numpy as np
+import pandas as pd
 import plotly.express as px</code></pre>
 
-<div class="callout">
-<strong>Mini Challenge</strong>
-<p>Write a function that calculates the average of a list.</p>
-</div>
-
-<h2>Why This Matters</h2>
 <p>
-Every real Python project is built on functions and libraries.
+These aliases (<code>np</code>, <code>pd</code>, <code>px</code>) are industry standards.
+</p>
+
+<hr>
+
+<h2>10. First Gentle Look at Pandas</h2>
+
+<pre><code>import pandas as pd
+
+data = {
+    "country": ["Nigeria", "Kenya", "Ghana"],
+    "cases": [1200, 850, 600]
+}
+
+df = pd.DataFrame(data)
+print(df)</code></pre>
+
+<p>
+You just created a <strong>DataFrame</strong>—a table-like structure.
+</p>
+
+<p>
+We will explore this deeply in the next chapters.
+</p>
+
+<hr>
+
+<h2>11. Using Libraries Responsibly</h2>
+
+<p>
+Libraries:
+</p>
+
+<ul>
+  <li>Save time</li>
+  <li>Reduce errors</li>
+  <li>Enable complex analysis</li>
+</ul>
+
+<p>
+But you must:
+</p>
+
+<ul>
+  <li>Understand what they do</li>
+  <li>Read error messages</li>
+  <li>Avoid blind copying</li>
+</ul>
+
+<p>
+Clarity always comes first.
+</p>
+
+<hr>
+
+<h2>12. Common Beginner Mistakes with Functions & Libraries</h2>
+
+<ul>
+  <li>❌ Forgetting parentheses (<code>print</code> instead of <code>print()</code>)</li>
+  <li>❌ Misspelling library aliases</li>
+  <li>❌ Expecting libraries to “just work”</li>
+</ul>
+
+<p>
+Libraries require correct syntax, inputs, and file paths.
+</p>
+
+<hr>
+
+<h2>Why This Chapter Matters in Real Projects</h2>
+
+<p>
+Functions and libraries allow you to:
+</p>
+
+<ul>
+  <li>Build reusable pipelines</li>
+  <li>Share clean, readable code</li>
+  <li>Reduce bugs</li>
+  <li>Scale your work</li>
+</ul>
+
+<p>
+Every professional Python project is built on functions.
+</p>
+
+<hr>
+
+<h2>Video Placeholder — SI Analytics (Final videos coming soon)</h2>
+<p><em>Using Functions and Libraries in Python (Introductory Lesson)</em></p>
+
+<hr>
+
+<h2>Mini Challenge</h2>
+
+<p>
+Write a function that:
+</p>
+<ul>
+  <li>Takes a list of numbers</li>
+  <li>Returns the maximum value</li>
+</ul>
+
+<p>
+Use it on at least two lists and print the results.
+</p>
+
+<hr>
+
+<h2>Reflection Questions</h2>
+
+<ul>
+  <li>Why is returning values better than printing them?</li>
+  <li>When would you use a method instead of a function?</li>
+  <li>Why do analysts rely heavily on libraries?</li>
+</ul>
+
+<hr>
+
+<h2>End-of-Chapter Recap</h2>
+
+<ul>
+  <li>What functions are and why they matter</li>
+  <li>How to write and call your own functions</li>
+  <li>The difference between functions and methods</li>
+  <li>How to import and use libraries</li>
+  <li>Why Pandas, NumPy, and Plotly are foundational</li>
+</ul>
+
+<p>
+<strong>You are now ready to store and organize data properly.</strong>
 </p>
 
 </main>
 
-<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+<footer>
+© Strategic Insights & Analytics (SI Analytics)
+</footer>
+
 </body>
 </html>
