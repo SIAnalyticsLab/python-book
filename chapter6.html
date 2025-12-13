@@ -4,20 +4,89 @@
 <meta charset="UTF-8">
 <title>Chapter 6 — Data Wrangling with Pandas</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial; margin: 0; color: #0F172A; line-height: 1.7; }
-header { background: #0F766E; color: white; padding: 40px; }
-nav { background: #0F172A; padding: 15px; }
-nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
-main { max-width: 900px; margin: auto; padding: 40px; }
-h2 { color: #0F766E; }
-pre { background: #f3f4f6; padding: 15px; }
-footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0F172A;
+  line-height: 1.7;
+}
+
+header {
+  background: #0F766E;
+  color: white;
+  padding: 40px;
+}
+
+nav {
+  background: #0F172A;
+  padding: 15px;
+}
+
+nav a {
+  color: #FACC15;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  text-align: left;
+}
+
+footer {
+  background: #0F172A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 </style>
 </head>
 
 <body>
-<header><h1>Chapter 6 — Data Wrangling with Pandas</h1></header>
+
+<header>
+  <h1>Chapter 6 — Data Wrangling with Pandas</h1>
+  <p><strong>Python for Data Analysis & Visualization</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
+  <p><em>Empowering Decisions. Driving Innovation.</em></p>
+</header>
 
 <nav>
   <a href="chapter5.html">← Chapter 5</a>
@@ -27,14 +96,412 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 
 <main>
 
-<pre><code>
-import pandas as pd
-df = pd.read_csv("data.csv")
-df.groupby("country")["cases"].sum()
-</code></pre>
+<h2>Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+  <li>Explain what Pandas is and why it is central to data analysis</li>
+  <li>Load real-world datasets into Python</li>
+  <li>Understand DataFrames and Series</li>
+  <li>Subset columns and rows confidently</li>
+  <li>Filter data using conditions</li>
+  <li>Create and transform new variables</li>
+  <li>Apply conditional transformations</li>
+  <li>Generate grouped summaries using <code>groupby</code> and <code>agg</code></li>
+  <li>Use <code>value_counts</code>, <code>transform</code>, and <code>cumsum</code></li>
+  <li>Recognize and fix common beginner Pandas mistakes</li>
+  <li>Explain why data wrangling is critical in real analytics projects</li>
+</ul>
+
+<hr>
+
+<h2>1. What Is Pandas? (In Plain Language)</h2>
+
+<p>
+Up to now, you have worked with:
+</p>
+
+<ul>
+  <li>Individual values</li>
+  <li>Lists</li>
+  <li>Dictionaries</li>
+  <li>Logic and loops</li>
+</ul>
+
+<p>
+But real data does not arrive neatly prepared.
+</p>
+
+<p>Real data:</p>
+<ul>
+  <li>Comes in tables</li>
+  <li>Has many rows and columns</li>
+  <li>Contains missing values</li>
+  <li>Requires cleaning before analysis</li>
+</ul>
+
+<p>
+This is where <strong>Pandas</strong> comes in.
+</p>
+
+<p>
+Pandas is a Python library designed to make working with tabular data easy, clear, and powerful.
+</p>
+
+<p>
+If Python is the language of data analysis, Pandas is its grammar.
+</p>
+
+<hr>
+
+<h2>2. The Core Idea: Tables in Python</h2>
+
+<p>
+Pandas introduces two core objects:
+</p>
+
+<h3>Series</h3>
+<p>A single column of data.</p>
+
+<h3>DataFrame</h3>
+<p>A full table (rows + columns).</p>
+
+<p>
+Think of a DataFrame as:
+</p>
+
+<ul>
+  <li>An Excel sheet</li>
+  <li>A database table</li>
+  <li>A CSV file loaded into Python</li>
+</ul>
+
+<hr>
+
+<h2>3. Importing Pandas (Standard Practice)</h2>
+
+<p>
+Always import Pandas like this:
+</p>
+
+<pre><code>import pandas as pd</code></pre>
+
+<p>
+This convention is universal across industry, academia, and open-source projects.
+</p>
+
+<hr>
+
+<h2>4. Loading a Real Dataset</h2>
+
+<p>
+Let’s load a real dataset from SI Analytics.
+</p>
+
+<p>
+We will use the <strong>Malaria dataset</strong>.
+</p>
+
+<p>
+📄 Dataset:<br>
+<a href="https://github.com/SIAnalyticsLab/30daychallengeguide/blob/main/malaria.csv" target="_blank">
+https://github.com/SIAnalyticsLab/30daychallengeguide/blob/main/malaria.csv
+</a>
+</p>
+
+<h3>Loading the Dataset</h3>
+
+<pre><code>import pandas as pd
+
+url = "https://raw.githubusercontent.com/SIAnalyticsLab/30daychallengeguide/main/malaria.csv"
+df = pd.read_csv(url)</code></pre>
+
+<h3>Inspecting the Data</h3>
+
+<pre><code>df.head()</code></pre>
+
+<p>
+This shows the first five rows.
+</p>
+
+<pre><code>df.shape</code></pre>
+
+<p>
+This returns:
+</p>
+
+<ul>
+  <li>Number of rows</li>
+  <li>Number of columns</li>
+</ul>
+
+<hr>
+
+<h2>5. Understanding Columns and Rows</h2>
+
+<h3>Viewing Column Names</h3>
+
+<pre><code>df.columns</code></pre>
+
+<p>
+Column names are how you refer to variables in Pandas.
+</p>
+
+<h3>Selecting a Single Column</h3>
+
+<pre><code>df["country"]</code></pre>
+
+<p>
+This returns a <strong>Series</strong>.
+</p>
+
+<h3>Selecting Multiple Columns</h3>
+
+<pre><code>df[["country", "year", "cases"]]</code></pre>
+
+<p>
+Always use double brackets for multiple columns.
+</p>
+
+<h3>Common Beginner Mistake</h3>
+
+<pre><code>df["country", "year"]  # Error</code></pre>
+
+<hr>
+
+<h2>6. Subsetting Rows (Filtering Data)</h2>
+
+<h3>Filtering by Condition</h3>
+
+<pre><code>df[df["cases"] > 10000]</code></pre>
+
+<p>
+This returns only rows where cases exceed 10,000.
+</p>
+
+<h3>Filtering by Multiple Conditions</h3>
+
+<pre><code>df[(df["cases"] > 10000) & (df["year"] == 2020)]</code></pre>
+
+<p><strong>Important rules:</strong></p>
+<ul>
+  <li>Use <code>&</code> for <strong>and</strong></li>
+  <li>Wrap each condition in parentheses</li>
+</ul>
+
+<div class="callout">
+<strong>Try This Yourself</strong>
+<p>
+Filter the dataset to:
+</p>
+<ul>
+  <li>One country of your choice</li>
+  <li>One specific year</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>7. Creating New Variables (Columns)</h2>
+
+<p>
+Data analysis often requires new variables.
+</p>
+
+<h3>Example: Calculating Case Rate</h3>
+
+<pre><code>df["cases_per_1000"] = df["cases"] / df["population"] * 1000</code></pre>
+
+<p>
+You just created a new column.
+</p>
+
+<h3>Why This Matters</h3>
+
+<ul>
+  <li>Standardize metrics</li>
+  <li>Compare across groups</li>
+  <li>Create indicators for dashboards</li>
+</ul>
+
+<hr>
+
+<h2>8. Conditional Transformations</h2>
+
+<p>
+Sometimes you want values based on conditions.
+</p>
+
+<h3>Example: Risk Category</h3>
+
+<pre><code>df["risk_level"] = "Low"
+
+df.loc[df["cases"] > 10000, "risk_level"] = "High"</code></pre>
+
+<p>
+Here:
+</p>
+
+<ul>
+  <li>Default is “Low”</li>
+  <li>Rows meeting the condition become “High”</li>
+</ul>
+
+<hr>
+
+<h2>9. Grouped Summaries with <code>groupby</code></h2>
+
+<h3>Basic Grouped Sum</h3>
+
+<pre><code>df.groupby("country")["cases"].sum()</code></pre>
+
+<h3>Grouped Mean</h3>
+
+<pre><code>df.groupby("country")["cases"].mean()</code></pre>
+
+<h3>Multiple Aggregations</h3>
+
+<pre><code>df.groupby("country").agg(
+    total_cases=("cases", "sum"),
+    average_cases=("cases", "mean")
+)</code></pre>
+
+<p>
+This produces a clean summary table.
+</p>
+
+<hr>
+
+<h2>10. Counting Values with <code>value_counts()</code></h2>
+
+<pre><code>df["country"].value_counts()</code></pre>
+
+<p>
+This shows how many records exist per country.
+</p>
+
+<hr>
+
+<h2>11. Using <code>transform</code> for Group-Level Calculations</h2>
+
+<pre><code>df["country_mean_cases"] = (
+    df.groupby("country")["cases"]
+      .transform("mean")
+)</code></pre>
+
+<p>
+Each row now carries its country’s average.
+</p>
+
+<hr>
+
+<h2>12. Cumulative Calculations with <code>cumsum()</code></h2>
+
+<pre><code>df = df.sort_values(["country", "year"])
+df["cumulative_cases"] = df.groupby("country")["cases"].cumsum()</code></pre>
+
+<p>
+This is essential for:
+</p>
+
+<ul>
+  <li>Time-series analysis</li>
+  <li>Epidemic curves</li>
+  <li>Growth tracking</li>
+</ul>
+
+<hr>
+
+<h2>13. Common Beginner Mistakes with Pandas</h2>
+
+<ul>
+  <li>❌ Forgetting brackets</li>
+  <li>❌ Confusing rows vs columns</li>
+  <li>❌ Using <code>and</code> instead of <code>&</code></li>
+  <li>❌ Forgetting to inspect data</li>
+  <li>❌ Modifying data without understanding structure</li>
+</ul>
+
+<p>
+All of these are normal learning steps.
+</p>
+
+<hr>
+
+<h2>Why This Chapter Matters in Real Projects</h2>
+
+<p>
+Data wrangling is <strong>70–80%</strong> of real analytics work.
+</p>
+
+<p>
+Before dashboards, models, or reports:
+</p>
+
+<ul>
+  <li>Data must be cleaned</li>
+  <li>Variables must be created</li>
+  <li>Groups must be summarized</li>
+</ul>
+
+<p>
+Strong Pandas skills are non-negotiable for professional analysts.
+</p>
+
+<hr>
+
+<h2>Video Placeholder — SI Analytics (Final videos coming soon)</h2>
+
+<p><em>Introduction to Pandas for Data Analysis</em></p>
+
+<hr>
+
+<h2>Mini Challenge</h2>
+
+<p>Using the malaria dataset:</p>
+<ul>
+  <li>Filter data for one country</li>
+  <li>Create cases per 1,000 population</li>
+  <li>Calculate total cases by year</li>
+  <li>Identify the year with the highest cases</li>
+</ul>
+
+<hr>
+
+<h2>Reflection Questions</h2>
+
+<ul>
+  <li>Why is <code>groupby</code> so powerful?</li>
+  <li>What is the difference between <code>agg</code> and <code>transform</code>?</li>
+  <li>Why is sorting important before cumulative calculations?</li>
+</ul>
+
+<p>
+Write short answers in plain language.
+</p>
+
+<hr>
+
+<h2>End-of-Chapter Recap</h2>
+
+<ul>
+  <li>What Pandas is and why it matters</li>
+  <li>How to load and inspect real datasets</li>
+  <li>How to subset rows and columns</li>
+  <li>How to create and transform variables</li>
+  <li>How to summarize data using <code>groupby</code></li>
+  <li>How to compute cumulative and group-level metrics</li>
+</ul>
+
+<p>
+<strong>You are now ready to reshape and combine datasets — a critical real-world skill.</strong>
+</p>
 
 </main>
 
-<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+<footer>
+© Strategic Insights & Analytics (SI Analytics)
+</footer>
+
 </body>
 </html>
+
