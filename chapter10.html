@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 10 — Quarto Dashboards & Final Project</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial; margin: 0; color: #0F172A; line-height: 1.7; }
+header { background: #0F766E; color: white; padding: 40px; }
+nav { background: #0F172A; padding: 15px; }
+nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
+main { max-width: 900px; margin: auto; padding: 40px; }
+h2 { color: #0F766E; }
+pre { background: #f3f4f6; padding: 15px; }
+.callout { background: #f9fafb; border-left: 4px solid #0F766E; padding: 15px; margin: 25px 0; }
+footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Chapter 10 — Quarto Dashboards & Final Project</h1>
+  <p>Python for Data Analysis & Visualization — SI Analytics</p>
+</header>
+
+<nav>
+  <a href="chapter9.html">← Chapter 9</a>
+  <a href="index.html">Home</a>
+</nav>
+
+<main>
+
+<h2>Learning Objectives</h2>
+<ul>
+  <li>Understand what Quarto is</li>
+  <li>Build dashboards using Python + Markdown</li>
+  <li>Render HTML outputs</li>
+  <li>Deploy dashboards to GitHub Pages</li>
+</ul>
+
+<hr>
+
+<h2>1. What Is Quarto?</h2>
+
+<p>
+Quarto is a publishing system that turns analysis into shareable products.
+</p>
+
+<hr>
+
+<h2>2. Quarto Document Structure</h2>
+
+<pre><code>---
+title: "My Dashboard"
+format: html
+---</code></pre>
+
+<p>
+YAML controls document behavior.
+</p>
+
+<hr>
+
+<h2>3. Python + Markdown</h2>
+
+<p>
+Quarto allows narrative, code, and charts in one place.
+</p>
+
+<hr>
+
+<h2>4. Building a Dashboard</h2>
+
+<pre><code>quarto render dashboard.qmd</code></pre>
+
+<p>
+This generates an interactive HTML dashboard.
+</p>
+
+<hr>
+
+<h2>5. Publishing the Capstone</h2>
+
+<p>
+Push rendered files to GitHub and enable GitHub Pages.
+</p>
+
+<hr>
+
+<div class="callout">
+<strong>Capstone Project</strong>
+<ul>
+  <li>Load a real dataset</li>
+  <li>Transform data</li>
+  <li>Create at least two Plotly charts</li>
+  <li>Publish dashboard online</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>Why This Chapter Matters</h2>
+
+<p>
+This chapter turns skills into impact.
+</p>
+
+<hr>
+
+<h2>End-of-Book Recap</h2>
+
+<ul>
+  <li>You learned Python from zero</li>
+  <li>You analyzed real datasets</li>
+  <li>You built and published dashboards</li>
+</ul>
+
+<p><strong>This is the beginning, not the end.</strong></p>
+
+</main>
+
+<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+</body>
+</html>
