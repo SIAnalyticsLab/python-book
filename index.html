@@ -4,62 +4,231 @@
 <meta charset="UTF-8">
 <title>Python for Data Analysis & Visualization — SI Analytics</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial, sans-serif; margin: 0; color: #0F172A; }
-header { background: #0F766E; color: white; padding: 40px; }
-nav { background: #0F172A; padding: 15px; }
-nav a { color: #FACC15; margin-right: 15px; text-decoration: none; }
-main { padding: 40px; max-width: 900px; margin: auto; }
-footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0F172A;
+  line-height: 1.7;
+  display: flex;
+}
+
+/* Sidebar */
+aside {
+  width: 260px;
+  background: #0F172A;
+  color: white;
+  min-height: 100vh;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+aside h2 {
+  color: #FACC15;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+aside a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+aside a:hover {
+  color: #FACC15;
+}
+
+/* Main content */
+main {
+  flex: 1;
+  padding: 50px;
+  max-width: 1000px;
+}
+
+header h1 {
+  color: #0F766E;
+  margin-bottom: 10px;
+}
+
+header p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+h2 {
+  color: #0F766E;
+  margin-top: 40px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+}
+
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  font-size: 14px;
+}
 </style>
 </head>
 
 <body>
 
+<!-- SIDEBAR NAVIGATION -->
+<aside>
+  <h2>📘 Chapters</h2>
+
+  <a href="https://sianalyticslab.github.io/python-book/chapter1">Chapter 1 — Getting Started</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter2">Chapter 2 — Python Basics</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter3">Chapter 3 — Functions & Libraries</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter4">Chapter 4 — Data Structures</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter5">Chapter 5 — Control Flow & Logic</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter6">Chapter 6 — Data Wrangling with Pandas</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter7">Chapter 7 — Reshaping & Joining Data</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter8">Chapter 8 — Data Visualization with Plotly</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter9">Chapter 9 — Professional Workflow</a>
+  <a href="https://sianalyticslab.github.io/python-book/chapter10">Chapter 10 — Quarto & Capstone</a>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main>
+
 <header>
   <h1>Python for Data Analysis & Visualization</h1>
-  <p><strong>Strategic Insights & Analytics (SI Analytics)</strong></p>
+  <p><strong>An SI Analytics Guide</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
   <p><em>Empowering Decisions. Driving Innovation.</em></p>
 </header>
 
-<nav>
-  <a href="chapter1.html">Chapter 1</a>
-  <a href="chapter2.html">Chapter 2</a>
-  <a href="chapter3.html">Chapter 3</a>
-  <a href="chapter4.html">Chapter 4</a>
-  <a href="chapter5.html">Chapter 5</a>
-  <a href="chapter6.html">Chapter 6</a>
-  <a href="chapter7.html">Chapter 7</a>
-  <a href="chapter8.html">Chapter 8</a>
-  <a href="chapter9.html">Chapter 9</a>
-  <a href="chapter10.html">Chapter 10</a>
-</nav>
+<hr>
 
-<main>
-  <h2>Welcome</h2>
-  <p>
-    This book is a beginner-friendly, professional guide to Python for data analysis and visualization.
-    It takes you from zero programming knowledge to building and publishing interactive dashboards.
-  </p>
+<h2>Front Matter</h2>
 
-  <h3>What You Will Learn</h3>
-  <ul>
-    <li>Python fundamentals</li>
-    <li>Data wrangling with Pandas</li>
-    <li>Visualization with Plotly</li>
-    <li>Professional workflows</li>
-    <li>Publishing dashboards with Quarto & GitHub Pages</li>
-  </ul>
+<h2>Welcome Note from SI Analytics</h2>
 
-  <p>
-    <strong>Start here:</strong>
-    <a href="chapter1.html">Chapter 1 — Getting Started with Python</a>
-  </p>
-</main>
+<p>
+Welcome to <strong>Python for Data Analysis & Visualization — An SI Analytics Guide</strong>.
+</p>
+
+<p>
+At Strategic Insights & Analytics (SI Analytics), we work at the intersection of data,
+evidence, and decision-making. Across public health, development, finance, research,
+and technology, one skill repeatedly proves transformative: the ability to work
+confidently with data.
+</p>
+
+<p>
+Python has emerged as one of the most powerful and widely adopted tools for this purpose.
+Yet, many learners struggle not because Python is inherently difficult, but because it
+is often taught too quickly, too abstractly, or with assumptions about prior knowledge.
+</p>
+
+<p><strong>This book was created to change that.</strong></p>
+
+<div class="callout">
+<p>You will not be rushed.</p>
+<p>You will not be overwhelmed.</p>
+<p>You will not be expected to “just know” things.</p>
+</div>
+
+<p>
+Instead, you will be guided — step by step — from zero experience to analysis-ready
+proficiency, using real datasets, modern tools, and a calm, practical teaching style.
+</p>
+
+<h2>Who This Book Is For</h2>
+
+<p>This book is designed for:</p>
+
+<ul>
+  <li>Complete beginners with no prior programming experience</li>
+  <li>Analysts, researchers, and professionals transitioning into data roles</li>
+  <li>Public health, development, finance, and social science practitioners</li>
+  <li>Students and early-career professionals seeking practical data skills</li>
+  <li>Anyone who wants to understand what Python is doing — not just copy code</li>
+</ul>
+
+<p>
+If you can read, think logically, and are willing to practice, you belong here.
+</p>
+
+<h2>How to Use This Book</h2>
+
+<p>
+This book is structured as a <strong>10-week learning journey</strong>, with one chapter
+per week.
+</p>
+
+<p>Each chapter includes:</p>
+
+<ul>
+  <li>Clear learning objectives</li>
+  <li>Plain-language explanations</li>
+  <li>Carefully commented code examples</li>
+  <li>“Try this yourself” practice blocks</li>
+  <li>Mini-challenges to build confidence</li>
+  <li>Common beginner mistakes (and how to avoid them)</li>
+  <li>Reflection questions</li>
+  <li>Real-project relevance</li>
+  <li>A short recap to reinforce learning</li>
+</ul>
+
+<div class="callout">
+<p>Do not rush.</p>
+<p>Re-read sections.</p>
+<p>Run every piece of code yourself.</p>
+<p>Break things — and fix them.</p>
+</div>
+
+<p>
+That is how learning happens.
+</p>
+
+<h2>Learning Outcomes After 10 Weeks</h2>
+
+<p>By the end of this book, you will be able to:</p>
+
+<ul>
+  <li>Read and write clean Python code using best practices (PEP 8)</li>
+  <li>Understand how Python thinks and executes instructions</li>
+  <li>Analyze real datasets using Pandas</li>
+  <li>Transform, summarize, and join data</li>
+  <li>Create interactive visualizations using Plotly</li>
+  <li>Build dashboards and reports using Quarto</li>
+  <li>Publish your work professionally using GitHub Pages</li>
+  <li>Transition confidently into real analytics projects</li>
+</ul>
+
+<h2>Tools Overview (Progressive Introduction)</h2>
+
+<p>You will learn tools in this order:</p>
+
+<ol>
+  <li>Google Colab — write Python in your browser (no installation)</li>
+  <li>Python (local installation) — professional environment</li>
+  <li>Visual Studio Code (VS Code) — modern code editor</li>
+  <li>Quarto — reports and dashboards</li>
+  <li>GitHub Pages — publishing and sharing your work</li>
+</ol>
+
+<p>
+Each tool is introduced only when needed.
+</p>
 
 <footer>
   © Strategic Insights & Analytics (SI Analytics)
 </footer>
 
+</main>
+
 </body>
 </html>
+
