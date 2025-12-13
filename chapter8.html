@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 8 — Data Visualization with Plotly</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #0F172A; line-height: 1.7; }
+header { background: #0F766E; color: white; padding: 40px; }
+nav { background: #0F172A; padding: 15px; }
+nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
+main { max-width: 900px; margin: auto; padding: 40px; }
+h2, h3 { color: #0F766E; }
+pre { background: #f3f4f6; padding: 15px; overflow-x: auto; }
+.callout { background: #f9fafb; border-left: 4px solid #0F766E; padding: 15px; margin: 25px 0; }
+footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Chapter 8 — Data Visualization with Plotly</h1>
+  <p><strong>Python for Data Analysis & Visualization</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
+  <p><em>Empowering Decisions. Driving Innovation.</em></p>
+</header>
+
+<nav>
+  <a href="chapter7.html">← Chapter 7</a>
+  <a href="index.html">Home</a>
+  <a href="chapter9.html">Chapter 9 →</a>
+</nav>
+
+<main>
+
+<h2>Learning Objectives</h2>
+<ul>
+  <li>Understand why visualization is essential in data analysis</li>
+  <li>Distinguish between univariate and multivariate charts</li>
+  <li>Choose appropriate chart types for analytical questions</li>
+  <li>Create interactive charts using Plotly Express</li>
+  <li>Customize charts for clarity and communication</li>
+</ul>
+
+<hr>
+
+<h2>1. Why Visualization Matters</h2>
+
+<p>
+Data analysis is incomplete until results are understandable.
+</p>
+
+<p>
+Visualization helps you:
+</p>
+<ul>
+  <li>See patterns and trends</li>
+  <li>Compare values quickly</li>
+  <li>Communicate findings to non-technical audiences</li>
+</ul>
+
+<p>
+Good visualization supports decisions.  
+Bad visualization can mislead.
+</p>
+
+<hr>
+
+<h2>2. Visualization Is About Questions</h2>
+
+<p>Before choosing a chart, ask:</p>
+<ul>
+  <li>Am I comparing categories?</li>
+  <li>Am I showing change over time?</li>
+  <li>Am I exploring relationships?</li>
+</ul>
+
+<p>
+Charts answer questions — they are not decorations.
+</p>
+
+<hr>
+
+<h2>3. Why Plotly?</h2>
+
+<p>
+Plotly creates <strong>interactive</strong> charts:
+</p>
+<ul>
+  <li>Hover tooltips</li>
+  <li>Zoom and pan</li>
+  <li>HTML-ready outputs</li>
+</ul>
+
+<p>
+Plotly integrates perfectly with Pandas, Quarto, and dashboards.
+</p>
+
+<hr>
+
+<h2>4. Creating Your First Plotly Chart</h2>
+
+<pre><code>import pandas as pd
+import plotly.express as px
+
+url = "https://raw.githubusercontent.com/SIAnalyticsLab/30daychallengeguide/main/tips.csv"
+df = pd.read_csv(url)</code></pre>
+
+<h3>Bar Chart</h3>
+
+<pre><code>fig = px.bar(
+    df,
+    x="day",
+    title="Number of Observations by Day"
+)
+fig.show()</code></pre>
+
+<p>
+Bar charts are ideal for categorical comparisons.
+</p>
+
+<hr>
+
+<h2>5. Distributions with Histograms</h2>
+
+<pre><code>fig = px.histogram(
+    df,
+    x="total_bill",
+    nbins=20,
+    title="Distribution of Total Bills"
+)
+fig.show()</code></pre>
+
+<p>
+Histograms reveal spread, skewness, and outliers.
+</p>
+
+<hr>
+
+<h2>6. Relationships with Scatter Plots</h2>
+
+<pre><code>fig = px.scatter(
+    df,
+    x="total_bill",
+    y="tip",
+    title="Total Bill vs Tip"
+)
+fig.show()</code></pre>
+
+<h3>Adding a Third Variable</h3>
+
+<pre><code>fig = px.scatter(
+    df,
+    x="total_bill",
+    y="tip",
+    color="day",
+    title="Tip vs Bill by Day"
+)
+fig.show()</code></pre>
+
+<hr>
+
+<h2>7. Trends Over Time</h2>
+
+<pre><code>malaria_url = "https://raw.githubusercontent.com/SIAnalyticsLab/30daychallengeguide/main/malaria.csv"
+malaria = pd.read_csv(malaria_url)
+
+fig = px.line(
+    malaria,
+    x="year",
+    y="cases",
+    color="country",
+    title="Malaria Cases Over Time"
+)
+fig.show()</code></pre>
+
+<p>
+Line charts are essential for monitoring trends.
+</p>
+
+<hr>
+
+<h2>Common Beginner Mistakes</h2>
+<ul>
+  <li>Using the wrong chart type</li>
+  <li>Overloading charts with colors</li>
+  <li>Missing labels or titles</li>
+</ul>
+
+<hr>
+
+<h2>Why This Chapter Matters</h2>
+
+<p>
+Decision-makers rely on visuals, not code.
+</p>
+
+<p>
+Strong visualization skills make your analysis visible, credible, and useful.
+</p>
+
+<hr>
+
+<h2>Mini Challenge</h2>
+<ul>
+  <li>Create a histogram of tips</li>
+  <li>Create a scatter plot of bill vs tip</li>
+  <li>Color points by sex</li>
+</ul>
+
+<hr>
+
+<h2>End-of-Chapter Recap</h2>
+<ul>
+  <li>Visualization supports decisions</li>
+  <li>Plotly enables interactive charts</li>
+  <li>Chart choice matters</li>
+</ul>
+
+</main>
+
+<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+</body>
+</html>
