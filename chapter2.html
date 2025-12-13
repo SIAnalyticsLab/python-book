@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 2 — Python Basics</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0F172A;
+  line-height: 1.7;
+}
+
+header {
+  background: #0F766E;
+  color: white;
+  padding: 40px;
+}
+
+nav {
+  background: #0F172A;
+  padding: 15px;
+}
+
+nav a {
+  color: #FACC15;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  text-align: left;
+}
+
+footer {
+  background: #0F172A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Chapter 2 — Python Basics</h1>
+  <p><strong>Python for Data Analysis & Visualization</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
+  <p><em>Empowering Decisions. Driving Innovation.</em></p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="chapter1.html">← Chapter 1</a>
+  <a href="chapter3.html">Chapter 3 →</a>
+</nav>
+
+<main>
+
+<h2>Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+  <li>Understand Python’s basic syntax and structure</li>
+  <li>Work confidently with numbers, text, and logical values</li>
+  <li>Use <code>print()</code> correctly to display results</li>
+  <li>Write clear comments that explain your code</li>
+  <li>Perform basic mathematical operations in Python</li>
+  <li>Recognize and fix common beginner syntax errors</li>
+  <li>Explain why clean syntax matters in real data projects</li>
+</ul>
+
+<hr>
+
+<h2>1. What “Python Syntax” Really Means</h2>
+
+<p>
+When people say <strong>Python syntax</strong>, they simply mean:
+</p>
+
+<blockquote>
+The rules Python follows to understand your instructions.
+</blockquote>
+
+<p>
+Just as English has grammar rules, Python has syntax rules.
+The good news is that Python’s syntax is simpler and more readable than most programming languages.
+</p>
+
+<h3>Key Ideas to Remember</h3>
+<ul>
+  <li>Python reads code from top to bottom</li>
+  <li>Python is case-sensitive</li>
+  <li>Python cares about spacing and indentation</li>
+  <li>Python executes instructions exactly as written</li>
+</ul>
+
+<p>
+Python does not guess what you mean.
+</p>
+
+<hr>
+
+<h2>2. Running Code Line by Line</h2>
+
+<p>In Google Colab, type:</p>
+
+<pre><code>print("Learning Python")
+print("One step at a time")</code></pre>
+
+<p>Press <strong>Shift + Enter</strong>.</p>
+
+<p>Python executes:</p>
+<ul>
+  <li>The first <code>print()</code></li>
+  <li>Then the second <code>print()</code></li>
+</ul>
+
+<p>
+Each instruction is independent unless you connect them with variables or logic.
+</p>
+
+<div class="callout">
+<strong>Try This Yourself</strong>
+<p>
+Change the text inside each <code>print()</code> statement to something personal or motivating.
+</p>
+</div>
+
+<hr>
+
+<h2>3. Numbers in Python</h2>
+
+<h3>Integers (Whole Numbers)</h3>
+
+<pre><code>cases = 120
+deaths = 5</code></pre>
+
+<p>Integers are used when:</p>
+<ul>
+  <li>Counting people</li>
+  <li>Counting events</li>
+  <li>Working with totals</li>
+</ul>
+
+<h3>Floating-Point Numbers (Decimals)</h3>
+
+<pre><code>rate = 2.5
+average_age = 34.7</code></pre>
+
+<p>Floats are used when:</p>
+<ul>
+  <li>Precision matters</li>
+  <li>You are calculating averages or rates</li>
+  <li>You expect decimal results</li>
+</ul>
+
+<h3>Checking the Type of a Number</h3>
+
+<pre><code>type(cases)
+type(rate)</code></pre>
+
+<p>You should see:</p>
+<ul>
+  <li><code>int</code> for integers</li>
+  <li><code>float</code> for decimals</li>
+</ul>
+
+<hr>
+
+<h2>4. Strings: Working with Text</h2>
+
+<p>
+A <strong>string</strong> is any text enclosed in quotation marks.
+</p>
+
+<pre><code>country = "Nigeria"
+program = "HIV Prevention"</code></pre>
+
+<p>Python accepts:</p>
+<ul>
+  <li>Double quotes <code>"text"</code></li>
+  <li>Single quotes <code>'text'</code></li>
+</ul>
+
+<p>Be consistent.</p>
+
+<h3>Printing Strings</h3>
+
+<pre><code>print(country)
+print(program)</code></pre>
+
+<h3>Combining Text (Very Gently)</h3>
+
+<pre><code>print("Country:", country)</code></pre>
+
+<p>Python prints:</p>
+
+<pre><code>Country: Nigeria</code></pre>
+
+<h3>Common Beginner Mistake</h3>
+
+<p>❌ Forgetting quotation marks:</p>
+
+<pre><code>country = Nigeria</code></pre>
+
+<p>✅ Correct:</p>
+
+<pre><code>country = "Nigeria"</code></pre>
+
+<hr>
+
+<h2>5. Booleans: True or False</h2>
+
+<pre><code>is_active = True
+is_complete = False</code></pre>
+
+<p>Important rules:</p>
+<ul>
+  <li>Capital <code>T</code> in <code>True</code></li>
+  <li>Capital <code>F</code> in <code>False</code></li>
+</ul>
+
+<p>Booleans are critical later for:</p>
+<ul>
+  <li>Filtering data</li>
+  <li>Writing conditions</li>
+  <li>Making decisions in code</li>
+</ul>
+
+<div class="callout">
+<strong>Try This Yourself</strong>
+<ul>
+  <li>Create one integer</li>
+  <li>Create one float</li>
+  <li>Create one string</li>
+  <li>Create one boolean</li>
+</ul>
+<p>Print all four.</p>
+</div>
+
+<hr>
+
+<h2>6. The <code>print()</code> Function (More Carefully)</h2>
+
+<pre><code>print("Total cases:", cases)</code></pre>
+
+<p>You can print:</p>
+<ul>
+  <li>Text</li>
+  <li>Variables</li>
+  <li>Results of calculations</li>
+</ul>
+
+<pre><code>print(10 + 5)</code></pre>
+
+<p>Python prints:</p>
+
+<pre><code>15</code></pre>
+
+<h3>Why <code>print()</code> Matters</h3>
+
+<p>
+Without <code>print()</code>, Python often calculates silently.
+As a beginner, always print results so you can see what is happening.
+</p>
+
+<hr>
+
+<h2>7. Comments: Writing Code for Humans</h2>
+
+<pre><code># Store the number of reported cases
+cases = 120</code></pre>
+
+<p>Python ignores comments completely.</p>
+
+<h3>Why Comments Matter in Real Projects</h3>
+<ul>
+  <li>You will forget what code does</li>
+  <li>Other people will read your code</li>
+  <li>Clear explanations build trust</li>
+</ul>
+
+<hr>
+
+<h2>8. Basic Math Operations in Python</h2>
+
+<pre><code>a = 10
+b = 3</code></pre>
+
+<table>
+<tr>
+<th>Operation</th>
+<th>Symbol</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+<tr>
+<td>Addition</td>
+<td>+</td>
+<td>a + b</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Subtraction</td>
+<td>-</td>
+<td>a - b</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td>*</td>
+<td>a * b</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>/</td>
+<td>a / b</td>
+<td>3.333...</td>
+</tr>
+</table>
+
+<p>Try:</p>
+
+<pre><code>print(a + b)
+print(a / b)</code></pre>
+
+<h3>Order of Operations</h3>
+
+<pre><code>result = (10 + 5) * 2
+print(result)</code></pre>
+
+<p>Parentheses matter.</p>
+
+<div class="callout">
+<strong>Mini Exercise</strong>
+<p>Calculate total cost and average cost:</p>
+<pre><code>cost1 = 200
+cost2 = 300
+cost3 = 500</code></pre>
+</div>
+
+<hr>
+
+<h2>9. Common Beginner Errors (And Why They Happen)</h2>
+
+<p>❌ Missing parentheses:</p>
+<pre><code>print "Hello"</code></pre>
+
+<p>✅ Correct:</p>
+<pre><code>print("Hello")</code></pre>
+
+<p>❌ Misspelling function names:</p>
+<pre><code>pritn("Hello")</code></pre>
+
+<p>❌ Mixing text and numbers incorrectly:</p>
+<pre><code>print("Total:", 10 + "5")</code></pre>
+
+<p>Text and numbers must be handled carefully.</p>
+
+<hr>
+
+<h2>10. Why This Matters in Real Data Projects</h2>
+
+<ul>
+  <li>Correct syntax</li>
+  <li>Clear variable naming</li>
+  <li>Accurate calculations</li>
+  <li>Readable outputs</li>
+</ul>
+
+<p>
+Errors at this level can corrupt analyses, mislead decision-makers, and break dashboards.
+</p>
+
+<p>
+<strong>Strong basics = trustworthy results.</strong>
+</p>
+
+<hr>
+
+<h2>Reflection Questions</h2>
+
+<ul>
+  <li>What happens if Python encounters an error?</li>
+  <li>Why are quotation marks important?</li>
+  <li>Why is printing results essential while learning?</li>
+</ul>
+
+<hr>
+
+<h2>End-of-Chapter Recap</h2>
+
+<ul>
+  <li>How Python syntax works</li>
+  <li>How to use numbers, strings, and booleans</li>
+  <li>How to print outputs clearly</li>
+  <li>How to write comments</li>
+  <li>How to perform basic math</li>
+  <li>How to recognize common beginner errors</li>
+</ul>
+
+<p><strong>You are now ready to structure logic and reuse code.</strong></p>
+
+</main>
+
+<footer>
+  © Strategic Insights & Analytics (SI Analytics)
+</footer>
+
+</body>
+</html>
