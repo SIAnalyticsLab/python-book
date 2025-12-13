@@ -4,20 +4,89 @@
 <meta charset="UTF-8">
 <title>Chapter 5 — Control Flow & Logic</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial; margin: 0; color: #0F172A; line-height: 1.7; }
-header { background: #0F766E; color: white; padding: 40px; }
-nav { background: #0F172A; padding: 15px; }
-nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
-main { max-width: 900px; margin: auto; padding: 40px; }
-h2 { color: #0F766E; }
-pre { background: #f3f4f6; padding: 15px; }
-footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0F172A;
+  line-height: 1.7;
+}
+
+header {
+  background: #0F766E;
+  color: white;
+  padding: 40px;
+}
+
+nav {
+  background: #0F172A;
+  padding: 15px;
+}
+
+nav a {
+  color: #FACC15;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  text-align: left;
+}
+
+footer {
+  background: #0F172A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 </style>
 </head>
 
 <body>
-<header><h1>Chapter 5 — Control Flow & Logic</h1></header>
+
+<header>
+  <h1>Chapter 5 — Control Flow & Logic</h1>
+  <p><strong>Python for Data Analysis & Visualization</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
+  <p><em>Empowering Decisions. Driving Innovation.</em></p>
+</header>
 
 <nav>
   <a href="chapter4.html">← Chapter 4</a>
@@ -27,23 +96,430 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 
 <main>
 
-<h2>If / Else Logic</h2>
-<pre><code>
-cases = 1200
+<h2>Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
+<ul>
+  <li>Explain what control flow means in Python</li>
+  <li>Use conditional statements (<code>if</code>, <code>elif</code>, <code>else</code>)</li>
+  <li>Write conditions using comparison operators</li>
+  <li>Combine conditions using logical operators</li>
+  <li>Write simple loops to repeat actions</li>
+  <li>Apply logic to real datasets and analysis scenarios</li>
+  <li>Identify and fix common beginner logic errors</li>
+  <li>Explain why control flow is essential in real projects</li>
+</ul>
+
+<hr>
+
+<h2>1. What Is Control Flow? (In Plain Language)</h2>
+
+<p>
+So far, Python has followed instructions line by line, without choice.
+</p>
+
+<p>
+But real programs need to make decisions.
+</p>
+
+<p>For example:</p>
+<ul>
+  <li>If cases are high, flag the region</li>
+  <li>If data is missing, skip the record</li>
+  <li>If a value meets a condition, calculate something</li>
+</ul>
+
+<p>
+This is called <strong>control flow</strong>.
+</p>
+
+<p>
+Control flow is how Python decides what to do next based on conditions.
+</p>
+
+<p>
+Without control flow, Python would be little more than a calculator.
+</p>
+
+<hr>
+
+<h2>2. Conditional Statements: if, elif, else</h2>
+
+<h3>The Basic Idea</h3>
+
+<p>
+A conditional statement allows Python to ask a question:
+</p>
+
+<blockquote>
+“If this condition is true, do this.”
+</blockquote>
+
+<h3>A Simple Example</h3>
+
+<pre><code>cases = 1200
+
+if cases > 1000:
+    print("High number of cases")</code></pre>
+
+<p>What is happening here?</p>
+<ul>
+  <li><code>cases &gt; 1000</code> is a condition</li>
+  <li>Python checks if it is <code>True</code></li>
+  <li>If yes, the indented code runs</li>
+  <li>If no, Python skips it</li>
+</ul>
+
+<h3>Important Rule: Indentation Matters</h3>
+
+<p>Python uses indentation (spaces) to know what belongs together.</p>
+
+<pre><code>if cases > 1000:
+print("High number of cases")  # This will cause an error</code></pre>
+
+<p>Correct version:</p>
+
+<pre><code>if cases > 1000:
+    print("High number of cases")</code></pre>
+
+<div class="callout">
+<strong>Try This Yourself</strong>
+<p>
+Change the value of <code>cases</code> and re-run the code.
+Observe when the message appears and when it does not.
+</p>
+</div>
+
+<hr>
+
+<h2>3. Adding Alternatives with else</h2>
+
+<p>
+What if you want Python to do something when the condition is false?
+</p>
+
+<pre><code>cases = 500
+
+if cases > 1000:
+    print("High number of cases")
+else:
+    print("Cases are manageable")</code></pre>
+
+<p>
+Python chooses one path only.
+</p>
+
+<hr>
+
+<h2>4. Multiple Conditions with elif</h2>
+
+<p>
+Real situations often have more than two possibilities.
+</p>
+
+<pre><code>cases = 800
+
 if cases > 1000:
     print("High burden")
+elif cases > 500:
+    print("Moderate burden")
 else:
-    print("Lower burden")
-</code></pre>
+    print("Low burden")</code></pre>
 
-<h2>Loops</h2>
-<pre><code>
-for country in ["Nigeria", "Kenya"]:
-    print(country)
-</code></pre>
+<p>
+Python evaluates conditions from top to bottom.
+</p>
+
+<p>
+The first condition that is <code>True</code> wins.
+</p>
+
+<h3>Common Beginner Mistake</h3>
+
+<pre><code>if cases > 500:
+    print("Moderate")
+elif cases > 1000:
+    print("High")</code></pre>
+
+<p>
+The second condition will never run.
+</p>
+
+<hr>
+
+<h2>5. Comparison Operators (The Language of Conditions)</h2>
+
+<table>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Greater than</td>
+<td>cases &gt; 1000</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Less than</td>
+<td>cases &lt; 500</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Greater or equal</td>
+<td>cases &gt;= 1000</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Less or equal</td>
+<td>cases &lt;= 100</td>
+</tr>
+<tr>
+<td>==</td>
+<td>Equal to</td>
+<td>country == "Nigeria"</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Not equal</td>
+<td>status != "Closed"</td>
+</tr>
+</table>
+
+<h3>Important Distinction</h3>
+
+<p>
+<code>=</code> assigns a value  
+<br>
+<code>==</code> compares values
+</p>
+
+<p>
+This is one of the most common beginner errors.
+</p>
+
+<hr>
+
+<h2>6. Logical Operators: Combining Conditions</h2>
+
+<p>
+Sometimes one condition is not enough.
+</p>
+
+<p>
+Python allows you to combine conditions using:
+</p>
+
+<ul>
+  <li><code>and</code></li>
+  <li><code>or</code></li>
+  <li><code>not</code></li>
+</ul>
+
+<h3>Using and</h3>
+
+<pre><code>cases = 1200
+year = 2023
+
+if cases > 1000 and year == 2023:
+    print("High burden this year")</code></pre>
+
+<p>
+Both conditions must be true.
+</p>
+
+<h3>Using or</h3>
+
+<pre><code>if cases > 1000 or year == 2023:
+    print("Condition met")</code></pre>
+
+<p>
+Only one condition needs to be true.
+</p>
+
+<h3>Using not</h3>
+
+<pre><code>is_reported = False
+
+if not is_reported:
+    print("Data not yet reported")</code></pre>
+
+<div class="callout">
+<strong>Try This Yourself</strong>
+<p>
+Write a condition that prints a message when:
+</p>
+<ul>
+  <li>Cases are above 500</li>
+  <li>And the country is Nigeria</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>7. Introducing Loops (Repeating Actions)</h2>
+
+<p>
+Loops allow Python to repeat tasks.
+</p>
+
+<p>
+This is essential when working with datasets.
+</p>
+
+<h3>The for Loop (First Encounter)</h3>
+
+<pre><code>countries = ["Nigeria", "Kenya", "Ghana"]
+
+for country in countries:
+    print(country)</code></pre>
+
+<p>What happens?</p>
+<ul>
+  <li>Python takes the first item</li>
+  <li>Assigns it to <code>country</code></li>
+  <li>Runs the indented code</li>
+  <li>Moves to the next item</li>
+  <li>Repeats until finished</li>
+</ul>
+
+<h3>Why Loops Matter</h3>
+
+<p>Loops allow you to:</p>
+<ul>
+  <li>Process each row of data</li>
+  <li>Apply rules repeatedly</li>
+  <li>Scale analysis to large datasets</li>
+</ul>
+
+<p>
+Without loops, data analysis would be impossible.
+</p>
+
+<hr>
+
+<h2>8. Applying Logic Inside a Loop</h2>
+
+<pre><code>cases_list = [1200, 450, 800]
+
+for cases in cases_list:
+    if cases > 1000:
+        print("High burden:", cases)
+    else:
+        print("Lower burden:", cases)</code></pre>
+
+<p>
+Python evaluates the condition for each value.
+</p>
+
+<hr>
+
+<h2>9. Applying Logic to Real Datasets (Conceptual Preview)</h2>
+
+<p>
+Later, you will work with Pandas DataFrames, but the logic is the same.
+</p>
+
+<pre><code>for country in countries:
+    if country == "Nigeria":
+        print("Priority country")</code></pre>
+
+<p>
+Understanding logic now makes Pandas much easier later.
+</p>
+
+<hr>
+
+<h2>10. Common Beginner Mistakes with Control Flow</h2>
+
+<ul>
+  <li>❌ Forgetting indentation</li>
+  <li>❌ Using <code>=</code> instead of <code>==</code></li>
+  <li>❌ Writing unclear or overlapping conditions</li>
+  <li>❌ Forgetting Python stops at the first true condition</li>
+</ul>
+
+<p>
+These are learning mistakes — not failures.
+</p>
+
+<hr>
+
+<h2>Why This Chapter Matters in Real Projects</h2>
+
+<p>
+Control flow allows you to:
+</p>
+
+<ul>
+  <li>Apply rules to data</li>
+  <li>Filter observations</li>
+  <li>Flag risks</li>
+  <li>Automate decisions</li>
+  <li>Build reliable pipelines</li>
+</ul>
+
+<p>
+Every real analytics project relies on logic.
+</p>
+
+<hr>
+
+<h2>Video Placeholder — SI Analytics (Final videos coming soon)</h2>
+
+<p><em>Control Flow & Logical Thinking in Python</em></p>
+
+<hr>
+
+<h2>Mini Challenge</h2>
+
+<ul>
+  <li>Create a list of case counts</li>
+  <li>Loop through the list</li>
+  <li>Print:
+    <ul>
+      <li>“High” if cases &gt; 1000</li>
+      <li>“Moderate” if cases &gt; 500</li>
+      <li>“Low” otherwise</li>
+    </ul>
+  </li>
+</ul>
+
+<hr>
+
+<h2>Reflection Questions</h2>
+
+<ul>
+  <li>Why is indentation critical in Python?</li>
+  <li>When would you use <code>and</code> instead of <code>or</code>?</li>
+  <li>How do loops support large datasets?</li>
+</ul>
+
+<p>
+Write short answers in plain language.
+</p>
+
+<hr>
+
+<h2>End-of-Chapter Recap</h2>
+
+<ul>
+  <li>What control flow is</li>
+  <li>How <code>if</code>, <code>elif</code>, and <code>else</code> work</li>
+  <li>How to write and combine conditions</li>
+  <li>How to use loops</li>
+  <li>How logic applies to real data problems</li>
+</ul>
+
+<p>
+<strong>You are now ready to manipulate real datasets systematically.</strong>
+</p>
 
 </main>
 
-<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+<footer>
+© Strategic Insights & Analytics (SI Analytics)
+</footer>
+
 </body>
 </html>
