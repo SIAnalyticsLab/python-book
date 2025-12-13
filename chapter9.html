@@ -4,15 +4,80 @@
 <meta charset="UTF-8">
 <title>Chapter 9 — Professional Python Workflow</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body { font-family: Arial; margin: 0; color: #0F172A; line-height: 1.7; }
-header { background: #0F766E; color: white; padding: 40px; }
-nav { background: #0F172A; padding: 15px; }
-nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
-main { max-width: 900px; margin: auto; padding: 40px; }
-h2 { color: #0F766E; }
-pre { background: #f3f4f6; padding: 15px; }
-footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #0F172A;
+  line-height: 1.7;
+}
+
+header {
+  background: #0F766E;
+  color: white;
+  padding: 40px;
+}
+
+nav {
+  background: #0F172A;
+  padding: 15px;
+}
+
+nav a {
+  color: #FACC15;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+h2, h3 {
+  color: #0F766E;
+}
+
+pre {
+  background: #f3f4f6;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+}
+
+.callout {
+  background: #f9fafb;
+  border-left: 4px solid #0F766E;
+  padding: 15px;
+  margin: 25px 0;
+}
+
+.video-box {
+  margin: 30px 0;
+  padding: 20px;
+  background: #f9fafb;
+  border-left: 4px solid #FACC15;
+}
+
+iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+}
+
+footer {
+  background: #0F172A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 </style>
 </head>
 
@@ -20,7 +85,9 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 
 <header>
   <h1>Chapter 9 — Professional Python Workflow</h1>
-  <p>Python for Data Analysis & Visualization — SI Analytics</p>
+  <p><strong>Python for Data Analysis & Visualization</strong></p>
+  <p>Strategic Insights & Analytics (SI Analytics)</p>
+  <p><em>Empowering Decisions. Driving Innovation.</em></p>
 </header>
 
 <nav>
@@ -32,93 +99,415 @@ footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
 <main>
 
 <h2>Learning Objectives</h2>
+<p>By the end of this chapter, you will be able to:</p>
 <ul>
-  <li>Understand professional Python workflows</li>
-  <li>Use VS Code and virtual environments</li>
-  <li>Run Python scripts</li>
-  <li>Understand Git and GitHub</li>
-  <li>Publish content using GitHub Pages</li>
+  <li>Explain the difference between learning Python and using Python professionally</li>
+  <li>Install Python 3.12 safely on your computer</li>
+  <li>Understand what Visual Studio Code (VS Code) is and why it is used</li>
+  <li>Create and use virtual environments (venv)</li>
+  <li>Run Python scripts outside notebooks</li>
+  <li>Understand the role of Git and GitHub</li>
+  <li>Publish simple HTML content using GitHub Pages</li>
+  <li>Avoid common beginner workflow mistakes</li>
+  <li>Explain why professional workflows matter in real projects</li>
 </ul>
 
 <hr>
 
-<h2>1. From Learning to Production</h2>
+<h2>1. From Learning to Professional Practice</h2>
 
 <p>
-Colab is excellent for learning.
-Professional projects require structure, reproducibility, and version control.
+Up to now, you have used Google Colab.
 </p>
+
+<p>
+Colab is excellent for:
+</p>
+
+<ul>
+  <li>Learning</li>
+  <li>Experimenting</li>
+  <li>Sharing quick examples</li>
+</ul>
+
+<p>
+However, real projects usually require:
+</p>
+
+<ul>
+  <li>Local files</li>
+  <li>Version control</li>
+  <li>Reproducibility</li>
+  <li>Collaboration</li>
+  <li>Deployment</li>
+</ul>
+
+<p>
+This chapter introduces the tools that professionals use daily.
+</p>
+
+<div class="callout">
+<p><strong>Learning Python is step one.</strong></p>
+<p><strong>Using Python professionally is step two.</strong></p>
+</div>
 
 <hr>
 
-<h2>2. Installing Python & VS Code</h2>
+<h2>2. Installing Python 3.12 (Carefully and Safely)</h2>
 
-<p>
-Install Python 3.12 from python.org and VS Code from code.visualstudio.com.
-</p>
+<h3>Why Python 3.12?</h3>
+
+<ul>
+  <li>Latest stable release</li>
+  <li>Performance improvements</li>
+  <li>Better error messages</li>
+  <li>Long-term support</li>
+</ul>
+
+<h3>Installation Steps (All Operating Systems)</h3>
+
+<ol>
+  <li>Go to <a href="https://www.python.org/downloads/" target="_blank">https://www.python.org/downloads/</a></li>
+  <li>Download Python 3.12</li>
+  <li>During installation, check <strong>“Add Python to PATH”</strong></li>
+  <li>Click Install</li>
+</ol>
+
+<h3>Verify Installation</h3>
 
 <pre><code>python --version</code></pre>
 
-<hr>
+<p>
+You should see:
+</p>
 
-<h2>3. Virtual Environments</h2>
-
-<pre><code>python -m venv venv
-source venv/bin/activate</code></pre>
+<pre><code>Python 3.12.x</code></pre>
 
 <p>
-Virtual environments isolate project dependencies.
+If you do, installation is successful.
 </p>
 
 <hr>
 
-<h2>4. Running Scripts</h2>
+<h2>3. What Is Visual Studio Code (VS Code)?</h2>
+
+<p>
+VS Code is a code editor.
+</p>
+
+<p>
+It is:
+</p>
+
+<ul>
+  <li>Lightweight</li>
+  <li>Powerful</li>
+  <li>Free</li>
+  <li>Widely used in industry</li>
+</ul>
+
+<p>
+VS Code is <strong>not</strong> Python itself.
+It is where you write and manage code.
+</p>
+
+<h3>Why Analysts Use VS Code</h3>
+
+<ul>
+  <li>Python scripts</li>
+  <li>Jupyter notebooks</li>
+  <li>Git integration</li>
+  <li>Extensions</li>
+  <li>Debugging</li>
+</ul>
+
+<p>
+It is the professional home of your code.
+</p>
+
+<h3>Installing VS Code</h3>
+
+<p>
+Go to <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a>, download, and install.
+</p>
+
+<hr>
+
+<h2>4. Installing the Python Extension</h2>
+
+<p>
+Inside VS Code:
+</p>
+
+<ol>
+  <li>Click the Extensions icon</li>
+  <li>Search for <strong>Python</strong></li>
+  <li>Install the extension by Microsoft</li>
+</ol>
+
+<p>
+This enables:
+</p>
+
+<ul>
+  <li>Syntax highlighting</li>
+  <li>Code execution</li>
+  <li>Linting</li>
+  <li>Debugging</li>
+</ul>
+
+<hr>
+
+<h2>5. Understanding Project Structure</h2>
+
+<p>
+Professional Python projects are organized.
+</p>
+
+<pre><code>project-folder/
+│
+├── data/
+│   └── malaria.csv
+│
+├── scripts/
+│   └── analysis.py
+│
+├── outputs/
+│   └── charts.html
+│
+├── requirements.txt
+└── README.md</code></pre>
+
+<p>
+This structure:
+</p>
+
+<ul>
+  <li>Keeps data separate</li>
+  <li>Makes work reproducible</li>
+  <li>Helps collaborators understand your project</li>
+</ul>
+
+<hr>
+
+<h2>6. Virtual Environments (venv)</h2>
+
+<h3>What Problem Do Virtual Environments Solve?</h3>
+
+<p>
+Different projects may need different library versions.
+</p>
+
+<p>
+A virtual environment isolates dependencies per project.
+</p>
+
+<p>
+Think of it as a clean workspace for each project.
+</p>
+
+<h3>Create a Virtual Environment</h3>
+
+<pre><code>python -m venv venv</code></pre>
+
+<h3>Activate the Environment</h3>
+
+<p><strong>Windows</strong></p>
+<pre><code>venv\Scripts\activate</code></pre>
+
+<p><strong>macOS / Linux</strong></p>
+<pre><code>source venv/bin/activate</code></pre>
+
+<h3>Install Packages</h3>
+
+<pre><code>pip install pandas plotly numpy</code></pre>
+
+<p>
+Only this project sees these libraries.
+</p>
+
+<hr>
+
+<h2>7. Running Python Scripts</h2>
+
+<p>
+Create a file called <code>analysis.py</code>:
+</p>
+
+<pre><code>import pandas as pd
+
+print("Professional Python workflow started")</code></pre>
+
+<p>
+Run it:
+</p>
 
 <pre><code>python analysis.py</code></pre>
 
+<h3>Notebook vs Script</h3>
+
+<table border="1" cellpadding="8">
+<tr>
+<th>Notebooks</th>
+<th>Scripts</th>
+</tr>
+<tr>
+<td>Exploration</td>
+<td>Production</td>
+</tr>
+<tr>
+<td>Interactive</td>
+<td>Automated</td>
+</tr>
+<tr>
+<td>Visual</td>
+<td>Reproducible</td>
+</tr>
+</table>
+
 <p>
-Scripts enable automation and reproducibility.
+Professionals use both—intentionally.
 </p>
 
 <hr>
 
-<h2>5. Git & GitHub</h2>
+<h2>8. Introduction to Git & GitHub</h2>
+
+<h3>What Is Git?</h3>
 
 <p>
-Git tracks changes. GitHub hosts projects.
+Git tracks:
+</p>
+
+<ul>
+  <li>Changes to files</li>
+  <li>Who changed what</li>
+  <li>When changes happened</li>
+</ul>
+
+<p>
+Git protects you from lost work and broken code.
+</p>
+
+<h3>What Is GitHub?</h3>
+
+<p>
+GitHub hosts Git repositories, enables collaboration, and publishes content.
 </p>
 
 <p>
-Version control protects your work and enables collaboration.
+You do not need mastery yet—just familiarity.
 </p>
 
 <hr>
 
-<h2>6. GitHub Pages</h2>
+<h2>9. Publishing with GitHub Pages</h2>
 
 <p>
-GitHub Pages lets you publish HTML dashboards and reports.
+GitHub Pages allows you to host:
+</p>
+
+<ul>
+  <li>HTML files</li>
+  <li>Dashboards</li>
+  <li>Reports</li>
+  <li>Documentation</li>
+</ul>
+
+<h3>Basic Steps</h3>
+
+<ol>
+  <li>Create a GitHub repository</li>
+  <li>Add an <code>index.html</code></li>
+  <li>Go to Settings → Pages</li>
+  <li>Enable Pages from the main branch</li>
+</ol>
+
+<p>
+Your content is now public.
 </p>
 
 <hr>
 
-<h2>Why This Chapter Matters</h2>
+<h2>Why This Chapter Matters in Real Projects</h2>
 
 <p>
-Professional workflows build trust, scale, and collaboration.
+Professional workflows:
 </p>
+
+<ul>
+  <li>Enable collaboration</li>
+  <li>Ensure reproducibility</li>
+  <li>Support scaling</li>
+  <li>Build trust in analysis</li>
+</ul>
+
+<p>
+Tools matter because process matters.
+</p>
+
+<hr>
+
+<h2>Video Placeholder — SI Analytics (Final videos coming soon)</h2>
+
+<div class="video-box">
+  <p><strong>Deploying Your HTML Code on GitHub Pages</strong></p>
+
+  <iframe 
+    src="https://www.youtube.com/embed/MRk3dErFQmg" 
+    allowfullscreen>
+  </iframe>
+
+  <p>
+    ▶️ <a href="https://www.youtube.com/watch?v=MRk3dErFQmg" target="_blank">
+    Watch directly on YouTube</a> (optional)
+  </p>
+</div>
+
+<hr>
+
+<h2>Mini Challenge</h2>
+
+<ul>
+  <li>Install Python 3.12</li>
+  <li>Install VS Code</li>
+  <li>Create a virtual environment</li>
+  <li>Run a Python script</li>
+  <li>Create a GitHub repo and publish a simple HTML file</li>
+</ul>
+
+<hr>
+
+<h2>Reflection Questions</h2>
+
+<ul>
+  <li>Why are virtual environments important?</li>
+  <li>When would you use a script instead of a notebook?</li>
+  <li>Why does version control matter in teams?</li>
+</ul>
 
 <hr>
 
 <h2>End-of-Chapter Recap</h2>
+
 <ul>
-  <li>Professional Python requires structure</li>
-  <li>Virtual environments prevent conflicts</li>
-  <li>Git enables collaboration</li>
+  <li>How professionals work with Python</li>
+  <li>How to install Python and VS Code</li>
+  <li>How to use virtual environments</li>
+  <li>How to run Python scripts</li>
+  <li>How Git and GitHub support collaboration</li>
+  <li>How to publish work using GitHub Pages</li>
 </ul>
+
+<p>
+<strong>You are now ready to build and deploy complete dashboards.</strong>
+</p>
 
 </main>
 
-<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+<footer>
+© Strategic Insights & Analytics (SI Analytics)
+</footer>
+
 </body>
 </html>
