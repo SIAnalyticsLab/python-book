@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 3 — Functions, Methods & Libraries</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #0F172A; line-height: 1.7; }
+header { background: #0F766E; color: white; padding: 40px; }
+nav { background: #0F172A; padding: 15px; }
+nav a { color: #FACC15; margin-right: 15px; text-decoration: none; font-weight: bold; }
+main { max-width: 900px; margin: auto; padding: 40px; }
+h2, h3 { color: #0F766E; }
+pre { background: #f3f4f6; padding: 15px; }
+.callout { background: #f9fafb; border-left: 4px solid #0F766E; padding: 15px; margin: 25px 0; }
+footer { background: #0F172A; color: white; text-align: center; padding: 20px; }
+</style>
+</head>
+
+<body>
+<header>
+  <h1>Chapter 3 — Functions, Methods & Libraries</h1>
+  <p>Python for Data Analysis & Visualization — SI Analytics</p>
+</header>
+
+<nav>
+  <a href="chapter2.html">← Chapter 2</a>
+  <a href="index.html">Home</a>
+  <a href="chapter4.html">Chapter 4 →</a>
+</nav>
+
+<main>
+
+<h2>Learning Objectives</h2>
+<ul>
+  <li>Understand what functions are</li>
+  <li>Write and use your own functions</li>
+  <li>Understand methods vs functions</li>
+  <li>Import and use Python libraries</li>
+</ul>
+
+<h2>1. Why Functions Exist</h2>
+<p>
+Functions allow you to <strong>reuse logic</strong> instead of repeating code.
+They make your work cleaner, safer, and easier to scale.
+</p>
+
+<pre><code>def greet(name):
+    return "Hello " + name
+
+print(greet("Amina"))</code></pre>
+
+<h2>2. Functions vs Methods</h2>
+<p>
+A <strong>function</strong> stands alone.  
+A <strong>method</strong> belongs to an object.
+</p>
+
+<pre><code>text = "python"
+print(text.upper())</code></pre>
+
+<h2>3. Libraries</h2>
+<p>
+Libraries extend Python’s power.
+</p>
+
+<pre><code>import pandas as pd
+import numpy as np
+import plotly.express as px</code></pre>
+
+<div class="callout">
+<strong>Mini Challenge</strong>
+<p>Write a function that calculates the average of a list.</p>
+</div>
+
+<h2>Why This Matters</h2>
+<p>
+Every real Python project is built on functions and libraries.
+</p>
+
+</main>
+
+<footer>© Strategic Insights & Analytics (SI Analytics)</footer>
+</body>
+</html>
