@@ -1,125 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SI Analytics — Introduction to Google Colab</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Introduction to Google Colab — SI Analytics Bootcamp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- SI Analytics Branding -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f8fa;
-            color: #0F172A;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 920px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1, h2, h3 {
-            color: #0F766E;
-        }
-        a {
-            color: #0F766E;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            margin-left: 20px;
-        }
-        .note {
-            font-style: italic;
-            background: #f0f9f4;
-            padding: 10px;
-            border-left: 4px solid #0F766E;
-            margin: 15px 0;
-        }
-    </style>
+<!-- ============================
+   SI ANALYTICS BRANDING
+   ============================ -->
+<style>
+    :root {
+        --si-dark: #0F172A;
+        --si-teal: #0F766E;
+        --si-gold: #FACC15;
+        --si-light: #f8fafc;
+        --si-gray: #475569;
+        --si-border: #e2e8f0;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: var(--si-light);
+        color: var(--si-dark);
+        display: flex;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+        width: 250px;
+        background: var(--si-dark);
+        color: white;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 20px;
+        position: fixed;
+    }
+
+    .sidebar h2 {
+        color: white;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar a {
+        color: #cbd5e1;
+        text-decoration: none;
+        display: block;
+        padding: 6px 0;
+        font-size: 15px;
+    }
+
+    .sidebar a:hover {
+        color: var(--si-gold);
+    }
+
+    /* MAIN CONTENT */
+    .main {
+        margin-left: 260px;
+        margin-right: 260px;
+        padding: 40px;
+        max-width: 900px;
+    }
+
+    h1, h2, h3 {
+        color: var(--si-teal);
+        font-weight: 600;
+    }
+
+    p, ul, li {
+        line-height: 1.6;
+        font-size: 16px;
+    }
+
+    /* RIGHT TOC */
+    .toc {
+        width: 240px;
+        position: fixed;
+        right: 0;
+        background: white;
+        border-left: 1px solid var(--si-border);
+        padding: 20px;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .toc h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: var(--si-teal);
+    }
+
+    .toc a {
+        color: var(--si-gray);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .toc a:hover {
+        color: var(--si-teal);
+    }
+
+    /* CODE BLOCKS */
+    pre {
+        background: #1e293b;
+        color: white;
+        padding: 12px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 15px;
+    }
+
+    code {
+        font-family: Consolas, monospace;
+    }
+
+    /* NOTE BLOCK */
+    .note {
+        border-left: 4px solid var(--si-teal);
+        background: #e0f2f1;
+        padding: 12px;
+        margin: 20px 0;
+        font-size: 15px;
+    }
+
+</style>
 </head>
+
 <body>
 
-<div class="container">
+<!-- ============================
+ SIDEBAR — QUARTO STYLE
+============================ -->
+<div class="sidebar">
+    <h2>Introduction to Data Science with Python</h2>
 
-    <h1>Introduction to Google Colab</h1>
+    <a href="#">1. Introduction</a>
+    <a href="#">2. Introduction to Google Colab</a>
+    <a href="#">3. Coding Basics</a>
+    <a href="#">4. Functions & Libraries</a>
+    <a href="#">5. Data Structures</a>
+    <a href="#">6. Loops in Python</a>
+    <a href="#">7. Conditionals</a>
 
-    <p>This guide gives you a friendly, hands-on introduction to Google Colaboratory (Colab), an online environment that allows you to work with Python (and R) directly in your browser — without installing anything locally.</p>
+    <h2>Data Visualization</h2>
+    <a href="#">8. Visualization Types</a>
+    <a href="#">9. Plotly Univariate Graphs</a>
+    <a href="#">10. Plotly Bivariate Graphs</a>
+</div>
 
-    <div class="note">
-        Google Colab is ideal for beginner data analysts and learners because it removes setup barriers and lets you start coding immediately. :contentReference[oaicite:0]{index=0}
-    </div>
+<!-- ============================
+ MAIN CONTENT
+============================ -->
+<div class="main">
 
-    <h2>📌 Learning Objectives</h2>
-    <ul>
-        <li>Understand what Google Colab is and its advantages for data science and AI.</li>
-        <li>Learn how to access and navigate Google Colab notebooks.</li>
-        <li>Create and manage notebooks in Colab.</li>
-        <li>Run Python code in notebook cells.</li>
-        <li>Use text cells for explanations and formatting.</li>
-        <li>Import and use libraries for data analysis.</li>
-        <li>Import and use data files.</li>
-        <li>Share Colab notebooks for collaboration.</li>
-    </ul>
+<h1>2. Introduction to Google Colab</h1>
 
-    <h2>📍 What Is Google Colab?</h2>
-    <p>Google Colab (short for Google Collaboratory) is a free, cloud-based Jupyter notebook environment that allows you to write and run Python code in your browser. It’s widely used for data analysis, machine learning, and education. :contentReference[oaicite:1]{index=1}</p>
+<h2 id="learning-objectives">2.1 Learning Objectives</h2>
 
-    <h2>🚀 Getting Started with Colab</h2>
-    <p>Follow these steps to begin:</p>
-    <ul>
-        <li>Open your web browser and go to <a href="https://colab.research.google.com" target="_blank">colab.research.google.com</a>. :contentReference[oaicite:2]{index=2}</li>
-        <li>Sign in with your Google account (create one if you don’t have it yet).</li>
-        <li>Click “New Notebook” to create your first Colab notebook.</li>
-    </ul>
+<ul>
+<li>Understand what Google Colab is and why it’s powerful for data analysis.</li>
+<li>Learn how to access and navigate the Colab interface.</li>
+<li>Create and manage notebooks in Google Colab.</li>
+<li>Run Python code inside code cells.</li>
+<li>Use text (Markdown) cells for documentation.</li>
+<li>Import and analyze datasets.</li>
+<li>Share notebooks with teammates.</li>
+</ul>
 
-    <h2>📓 Creating and Managing Notebooks</h2>
-    <p>In Colab, notebooks are your workspace. They contain both text cells and code cells:</p>
-    <ul>
-        <li><strong>Text cells</strong> allow you to write headings, explanations, and notes (using Markdown formatting).</li>
-        <li><strong>Code cells</strong> let you write and run Python code interactively.</li>
-    </ul>
+<h2 id="introduction">2.2 Introduction</h2>
 
-    <h2>⚙️ Working with Code Cells</h2>
-    <ul>
-        <li>To add a new cell, click on the +Code button.</li>
-        <li>Run a cell by clicking the play ▶️ icon or using key shortcuts:</li>
-        <ul>
-            <li><strong>Ctrl + Enter</strong> – Run the current cell</li>
-            <li><strong>Shift + Enter</strong> – Run cell and move to the next one</li>
-        </ul>
-        <li>Your first code cell might take longer to run while the Python runtime initializes.</li>
-        <li>To display multiple outputs, wrap expressions in <code>print()</code> statements.</li>
-    </ul>
+<p>
+Google Colaboratory, or <strong>Colab</strong>, is a free online platform that lets you run Python code in your browser. 
+There’s no installation required — everything runs on Google’s cloud servers.
+</p>
 
-    <h2>📝 Use of Text Cells</h2>
-    <p>Use text cells to document your steps, explain logic, write titles and descriptions, and make your notebook easier to understand. Colab uses Markdown formatting, which lets you stylize headers, lists, links, and code easily.</p>
+<div class="note">
+Colab is especially powerful for beginners because it removes setup barriers and allows you to practice Python immediately.
+</div>
 
-    <h2>📊 Example: Running Python Code</h2>
-    <p>In a code cell, try:</p>
-    <pre><code>print("Hello, SI Analytics!")</code></pre>
-    <p>Then run the cell using <strong>Shift + Enter</strong> — you’ll see the output directly below the cell.</p>
+<p>
+While heavy workloads may timeout, Colab is ideal for learning, prototyping, and data analysis workflows.
+</p>
 
-    <h2>📁 Working With Data</h2>
-    <p>You’ll often need to upload and analyze datasets in Colab. To do this:</p>
-    <ul>
-        <li>Click on the “Files” icon on the left sidebar.</li>
-        <li>Upload your dataset (e.g., CSV).</li>
-        <li>Use Python libraries like <code>pandas</code> to load and analyze the data.</li>
-    </ul>
+<h2 id="getting-started">2.3 Getting Started with Colab</h2>
 
-    <h2>📤 Sharing and Collaboration</h2>
-    <p>Colab makes sharing easy — just click the “Share” button to generate a link that others can access.</p>
+<ul>
+<li>Search for “Google Colab” or visit <a href="https://colab.research.google.com">colab.research.google.com</a>.</li>
+<li>Log in with your Google account.</li>
+<li>Create a notebook by selecting <strong>New Notebook</strong>.</li>
+</ul>
 
-    <h2>✔ Conclusion</h2>
-    <p>Google Colab provides a powerful, cloud-based environment where you can begin your Python journey without setup hurdles. Its ability to run code, display outputs in real time, and integrate text and visuals makes it ideal for learning, experimentation, and collaboration. :contentReference[oaicite:3]{index=3}</p>
+<h2 id="creating-notebooks">2.4 Creating and Managing Notebooks</h2>
 
+<p>
+Notebooks are organized into <strong>code cells</strong> and <strong>text cells</strong>.
+You can rename your notebook from the top-left corner.
+</p>
+
+<h2 id="working-with-cells">2.5 Working with Code Cells</h2>
+
+<p>To run code, type in a code cell and click ▶️ or press:</p>
+<ul>
+<li><strong>Shift + Enter</strong> — run and move to next cell</li>
+<li><strong>Ctrl + Enter</strong> — run, stay in same cell</li>
+</ul>
+
+<h3>Example Code Cell</h3>
+
+<pre><code># Your first Python command in Colab
+print("Hello SI Analytics Bootcamp!")
+</code></pre>
+
+<h2 id="text-cells">2.6 Text Cells (Markdown)</h2>
+
+<p>
+Use text cells to add explanations, notes, titles, subtitles, formulas, or documentation. 
+Colab supports <strong>Markdown</strong>, which is simple and flexible.
+</p>
+
+<pre><code># This is a Markdown heading
+## This is a subheading
+Here is some *italic*, **bold**, and `inline code`.
+</code></pre>
+
+<h2 id="working-data">2.7 Working with Data</h2>
+
+<p>You can upload files from your computer or connect to Google Drive.</p>
+
+<h3>Example: Importing a CSV File</h3>
+<pre><code>import pandas as pd
+
+df = pd.read_csv("Sales_Orders.csv")
+df.head()
+</code></pre>
+
+<h2 id="practice-import">2.8 Practice Task: Importing Data</h2>
+
+<p>Try uploading the provided practice dataset and reading it into pandas.</p>
+
+<h2 id="drive">2.9 Getting Data from Google Drive</h2>
+
+<pre><code>from google.colab import drive
+drive.mount('/content/drive')
+</code></pre>
+
+<h2 id="share">2.10 Sharing & Collaborating</h2>
+
+<p>Use the “Share” button to allow teammates or instructors to view or edit your notebook.</p>
+
+<h2 id="conclusion">2.11 Conclusion</h2>
+
+<p>
+Google Colab is a simple yet powerful environment for running Python for data analysis. 
+It supports code execution, writing documentation, importing data, visualizing outputs, and sharing your work — all from your browser.
+</p>
+
+</div>
+
+<!-- ============================
+ TABLE OF CONTENTS (RIGHT)
+============================ -->
+<div class="toc">
+    <h3>On this page</h3>
+    <a href="#learning-objectives">2.1 Learning Objectives</a>
+    <a href="#introduction">2.2 Introduction</a>
+    <a href="#getting-started">2.3 Getting Started</a>
+    <a href="#creating-notebooks">2.4 Creating Notebooks</a>
+    <a href="#working-with-cells">2.5 Code Cells</a>
+    <a href="#text-cells">2.6 Text Cells</a>
+    <a href="#working-data">2.7 Working With Data</a>
+    <a href="#practice-import">2.8 Practice Task</a>
+    <a href="#drive">2.9 Importing From Drive</a>
+    <a href="#share">2.10 Sharing</a>
+    <a href="#conclusion">2.11 Conclusion</a>
 </div>
 
 </body>
